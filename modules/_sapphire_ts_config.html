@@ -87,13 +87,48 @@
 						<h2>Usage</h2>
 					</a>
 					<p>You can use <code>@sapphire/ts-config</code>&#39;s
-					<a href="/tsconfig.json"><code>tsconfig.json</code></a> by extending it in yours:</p>
+					<a href="https://github.com/sapphiredev/utilities/blob/main/packages/ts-config/src/tsconfig.json"><code>tsconfig.json</code></a> by extending it in yours:</p>
 					<pre><code class="language-json">{
     <span class="hljs-attr">&quot;extends&quot;</span>: <span class="hljs-string">&quot;@sapphire/ts-config&quot;</span>
 }
 </code></pre>
-					<p>All of its properties are defaulted for bleeding-edge TypeScript options, you may extend this to include your own
+					<p>This TypeScript config is set up in such a way that it will suite nearly all projects, you may extend this to include your own
 					configuration options as well.</p>
+					<p>Following is a copy of this config file for easy viewing:</p>
+					<pre><code class="language-json">{
+    <span class="hljs-attr">&quot;compileOnSave&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">&quot;compilerOptions&quot;</span>: {
+        <span class="hljs-attr">&quot;allowSyntheticDefaultImports&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;alwaysStrict&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;declaration&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;declarationMap&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;emitDecoratorMetadata&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;esModuleInterop&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;experimentalDecorators&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;forceConsistentCasingInFileNames&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;importHelpers&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;importsNotUsedAsValues&quot;</span>: <span class="hljs-string">&quot;error&quot;</span>,
+        <span class="hljs-attr">&quot;incremental&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;lib&quot;</span>: [<span class="hljs-string">&quot;esnext&quot;</span>],
+        <span class="hljs-attr">&quot;module&quot;</span>: <span class="hljs-string">&quot;CommonJS&quot;</span>,
+        <span class="hljs-attr">&quot;moduleResolution&quot;</span>: <span class="hljs-string">&quot;Node&quot;</span>,
+        <span class="hljs-attr">&quot;newLine&quot;</span>: <span class="hljs-string">&quot;lf&quot;</span>,
+        <span class="hljs-attr">&quot;noEmitHelpers&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;noFallthroughCasesInSwitch&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;noImplicitReturns&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;noUnusedLocals&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;noUnusedParameters&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;preserveConstEnums&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;pretty&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;removeComments&quot;</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-attr">&quot;resolveJsonModule&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;sourceMap&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;strict&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">&quot;target&quot;</span>: <span class="hljs-string">&quot;ES2019&quot;</span>,
+        <span class="hljs-attr">&quot;useDefineForClassFields&quot;</span>: <span class="hljs-literal">true</span>
+    }
+}
+</code></pre>
 					<a href="#api-documentation" id="api-documentation" style="color: inherit; text-decoration: none;">
 						<h2>API Documentation</h2>
 					</a>
@@ -140,7 +175,7 @@
 							<td align="center"><a href="https://github.com/kyranet"><img src="https://avatars0.githubusercontent.com/u/24852502?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Antonio Román</b></sub></a><br /><a href="https://github.com/sapphiredev/utilities/commits?author=kyranet" title="Code">💻</a> <a href="#projectManagement-kyranet" title="Project Management">📆</a> <a href="https://github.com/sapphiredev/utilities/pulls?q=is%3Apr+reviewed-by%3Akyranet" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/sapphiredev/utilities/commits?author=kyranet" title="Tests">⚠️</a></td>
 							<td align="center"><a href="https://github.com/PyroTechniac"><img src="https://avatars2.githubusercontent.com/u/39341355?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Gryffon Bellish</b></sub></a><br /><a href="https://github.com/sapphiredev/utilities/commits?author=PyroTechniac" title="Code">💻</a> <a href="https://github.com/sapphiredev/utilities/pulls?q=is%3Apr+reviewed-by%3APyroTechniac" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/sapphiredev/utilities/commits?author=PyroTechniac" title="Tests">⚠️</a></td>
 							<td align="center"><a href="https://github.com/vladfrangu"><img src="https://avatars3.githubusercontent.com/u/17960496?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Vlad Frangu</b></sub></a><br /><a href="https://github.com/sapphiredev/utilities/commits?author=vladfrangu" title="Code">💻</a> <a href="https://github.com/sapphiredev/utilities/issues?q=author%3Avladfrangu" title="Bug reports">🐛</a> <a href="https://github.com/sapphiredev/utilities/pulls?q=is%3Apr+reviewed-by%3Avladfrangu" title="Reviewed Pull Requests">👀</a> <a href="#userTesting-vladfrangu" title="User Testing">📓</a> <a href="https://github.com/sapphiredev/utilities/commits?author=vladfrangu" title="Tests">⚠️</a></td>
-							<td align="center"><a href="https://github.com/Soumil07"><img src="https://avatars0.githubusercontent.com/u/29275227?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Soumil07</b></sub></a><br /><a href="https://github.com/sapphiredev/utilities/commits?author=Soumil07" title="Code">💻</a> <a href="#projectManagement-Soumil07" title="Project Management">📆</a> <a href="https://github.com/sapphiredev/utilities/commits?author=Soumil07" title="Tests">⚠️</a></td>
+							<td align="center"><a href="https://github.com/Stitch07"><img src="https://avatars0.githubusercontent.com/u/29275227?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Stitch07</b></sub></a><br /><a href="https://github.com/sapphiredev/utilities/commits?author=Stitch07" title="Code">💻</a> <a href="#projectManagement-Stitch07" title="Project Management">📆</a> <a href="https://github.com/sapphiredev/utilities/commits?author=Stitch07" title="Tests">⚠️</a></td>
 							<td align="center"><a href="https://github.com/apps/depfu"><img src="https://avatars3.githubusercontent.com/in/715?v=4?s=100" width="100px;" alt=""/><br /><sub><b>depfu[bot]</b></sub></a><br /><a href="#maintenance-depfu[bot]" title="Maintenance">🚧</a></td>
 							<td align="center"><a href="https://github.com/apps/allcontributors"><img src="https://avatars0.githubusercontent.com/in/23186?v=4?s=100" width="100px;" alt=""/><br /><sub><b>allcontributors[bot]</b></sub></a><br /><a href="https://github.com/sapphiredev/utilities/commits?author=allcontributors[bot]" title="Documentation">📖</a></td>
 						</tr>
