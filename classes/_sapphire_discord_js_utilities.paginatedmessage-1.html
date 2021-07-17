@@ -65,6 +65,48 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>This is a <a href="../modules/_sapphire_discord_js_utilities.html#paginatedmessage">PaginatedMessage</a>, a utility to paginate messages (usually embeds).
+						You must either use this class directly or extend it.</p>
+					</div>
+					<p><a href="../modules/_sapphire_discord_js_utilities.html#paginatedmessage">PaginatedMessage</a> uses actions, these are essentially reaction emojis, when triggered run the said action.
+						You can utilize your own actions, or you can use the <a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#defaultactions">PaginatedMessage.defaultActions</a>.
+					<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#defaultactions">PaginatedMessage.defaultActions</a> is also static so you can modify these directly.</p>
+					<p><a href="../modules/_sapphire_discord_js_utilities.html#paginatedmessage">PaginatedMessage</a> also uses pages, these are simply <a href="https://discord.js.org/#/docs/main/stable/class/APIMessage" class="external">APIMessages</a>.</p>
+					<dl class="tsd-comment-tags">
+						<dt>example</dt>
+						<dd><pre><code class="language-typescript"><span class="hljs-keyword">const</span> handler = <span class="hljs-keyword">new</span> PaginatedMessage();
+</code></pre>
+						</dd>
+						<dt>example</dt>
+						<dd><pre><code class="language-typescript"><span class="hljs-comment">// To utilize actions you can use the IPaginatedMessageAction by implementing it into a class.</span>
+<span class="hljs-comment">// PaginatedMessage requires you to have the class initialized using `new`.</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ForwardAction</span> <span class="hljs-title">implements</span> <span class="hljs-title">IPaginatedMessageAction</span> </span>{
+  <span class="hljs-keyword">public</span> id = <span class="hljs-string">&#x27;▶️&#x27;</span>;
+
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-title">run</span>(<span class="hljs-params">{ handler }</span>)</span> {
+    <span class="hljs-keyword">if</span> (handler.index !== handler.pages.length - <span class="hljs-number">1</span>) ++handler.index;
+  }
+}
+
+<span class="hljs-comment">// You can also give the object directly.</span>
+
+<span class="hljs-keyword">const</span> StopAction: IPaginatedMessageAction = {
+  <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;⏹️&#x27;</span>,
+  <span class="hljs-attr">disableResponseEdit</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">run</span>: <span class="hljs-function">(<span class="hljs-params">{ response, collector }</span>) =&gt;</span> {
+    <span class="hljs-keyword">await</span> response.reactions.removeAll();
+    collector!.stop();
+  }
+}
+</code></pre>
+						</dd>
+					</dl>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -92,11 +134,18 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#actions" class="tsd-kind-icon">actions</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#collector" class="tsd-kind-icon">collector</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#idle" class="tsd-kind-icon">idle</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#index" class="tsd-kind-icon">index</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#messages" class="tsd-kind-icon">messages</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#pages" class="tsd-kind-icon">pages</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#response" class="tsd-kind-icon">response</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#template" class="tsd-kind-icon">template</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#defaultactions" class="tsd-kind-icon">default<wbr>Actions</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#deletionstopreasons" class="tsd-kind-icon">deletion<wbr>Stop<wbr>Reasons</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#handlers" class="tsd-kind-icon">handlers</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#messages-1" class="tsd-kind-icon">messages</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#promptmessage" class="tsd-kind-icon">prompt<wbr>Message</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -104,9 +153,23 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addaction" class="tsd-kind-icon">add<wbr>Action</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addactions" class="tsd-kind-icon">add<wbr>Actions</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addasyncpagebuilder" class="tsd-kind-icon">add<wbr>Async<wbr>Page<wbr>Builder</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addasyncpageembed" class="tsd-kind-icon">add<wbr>Async<wbr>Page<wbr>Embed</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addpage" class="tsd-kind-icon">add<wbr>Page</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addpagebuilder" class="tsd-kind-icon">add<wbr>Page<wbr>Builder</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addpagecontent" class="tsd-kind-icon">add<wbr>Page<wbr>Content</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addpageembed" class="tsd-kind-icon">add<wbr>Page<wbr>Embed</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addpages" class="tsd-kind-icon">add<wbr>Pages</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#applyfooter" class="tsd-kind-icon">apply<wbr>Footer</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#applytemplate" class="tsd-kind-icon">apply<wbr>Template</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#applytemplateembed" class="tsd-kind-icon">apply<wbr>Template<wbr>Embed</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#clone" class="tsd-kind-icon">clone</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#handlecollect" class="tsd-kind-icon">handle<wbr>Collect</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#handleend" class="tsd-kind-icon">handle<wbr>End</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#handlepageload" class="tsd-kind-icon">handle<wbr>Page<wbr>Load</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#haspage" class="tsd-kind-icon">has<wbr>Page</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#mergearrays" class="tsd-kind-icon">merge<wbr>Arrays</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#mergeembeds" class="tsd-kind-icon">merge<wbr>Embeds</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#resolvepage" class="tsd-kind-icon">resolve<wbr>Page</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#resolvepagesonrun" class="tsd-kind-icon">resolve<wbr>Pages<wbr>OnRun</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#run" class="tsd-kind-icon">run</a></li>
@@ -114,6 +177,10 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#setidle" class="tsd-kind-icon">set<wbr>Idle</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#setindex" class="tsd-kind-icon">set<wbr>Index</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#setpages" class="tsd-kind-icon">set<wbr>Pages</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#setpromptmessage" class="tsd-kind-icon">set<wbr>Prompt<wbr>Message</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#setupmessage" class="tsd-kind-icon">set<wbr>UpMessage</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#setupreactions" class="tsd-kind-icon">set<wbr>UpReactions</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#resolvetemplate" class="tsd-kind-icon">resolve<wbr>Template</a></li>
 							</ul>
 						</section>
 					</div>
@@ -125,25 +192,38 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Paginated<wbr>Message<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{ </span>actions<span class="tsd-signature-symbol">: </span><a href="../interfaces/_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html" class="tsd-signature-type">IPaginatedMessageAction</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>pages<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../modules/_sapphire_discord_js_utilities.html#messagepage-1" class="tsd-signature-type">MessagePage</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html" class="tsd-signature-type">PaginatedMessage</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Paginated<wbr>Message<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{ </span>actions<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html" class="tsd-signature-type">IPaginatedMessageAction</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>pages<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../modules/_sapphire_discord_js_utilities.html#messagepage-1" class="tsd-signature-type">MessagePage</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>template<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html" class="tsd-signature-type">PaginatedMessage</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphire-project/utilities/blob/ef045f2/packages/discord.js-utilities/src/lib/PaginatedMessage.ts#L11">discord.js-utilities/src/lib/PaginatedMessage.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L99">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:99</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Constructor for the <a href="../modules/_sapphire_discord_js_utilities.html#paginatedmessage">PaginatedMessage</a> class</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> __namedParameters: <span class="tsd-signature-symbol">{ </span>actions<span class="tsd-signature-symbol">: </span><a href="../interfaces/_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html" class="tsd-signature-type">IPaginatedMessageAction</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>pages<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../modules/_sapphire_discord_js_utilities.html#messagepage-1" class="tsd-signature-type">MessagePage</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = {}</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> __namedParameters: <span class="tsd-signature-symbol">{ </span>actions<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html" class="tsd-signature-type">IPaginatedMessageAction</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>pages<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../modules/_sapphire_discord_js_utilities.html#messagepage-1" class="tsd-signature-type">MessagePage</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>template<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = {}</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The <a href="../modules/_sapphire_discord_js_utilities.html#paginatedmessageoptions">PaginatedMessageOptions</a> for this instance of the <a href="../modules/_sapphire_discord_js_utilities.html#paginatedmessage">PaginatedMessage</a> class</p>
+										</div>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter">
-											<h5>actions<span class="tsd-signature-symbol">: </span><a href="../interfaces/_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html" class="tsd-signature-type">IPaginatedMessageAction</a><span class="tsd-signature-symbol">[]</span></h5>
+											<h5>actions<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html" class="tsd-signature-type">IPaginatedMessageAction</a><span class="tsd-signature-symbol">[]</span></h5>
 										</li>
 										<li class="tsd-parameter">
 											<h5>pages<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../modules/_sapphire_discord_js_utilities.html#messagepage-1" class="tsd-signature-type">MessagePage</a><span class="tsd-signature-symbol">[]</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>template<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MessageEmbed</span></h5>
 										</li>
 									</ul>
 								</li>
@@ -158,22 +238,47 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="actions" class="tsd-anchor"></a>
 					<h3>actions</h3>
-					<div class="tsd-signature tsd-kind-icon">actions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html" class="tsd-signature-type">IPaginatedMessageAction</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = new Map&lt;string, IPaginatedMessageAction&gt;()</span></div>
+					<div class="tsd-signature tsd-kind-icon">actions<span class="tsd-signature-symbol">:</span> <a href="_sapphire_ratelimits.ratelimitmanager.html#map" class="tsd-signature-type">Map</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html" class="tsd-signature-type">IPaginatedMessageAction</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = new Map&lt;string, IPaginatedMessageAction&gt;()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphire-project/utilities/blob/ef045f2/packages/discord.js-utilities/src/lib/PaginatedMessage.ts#L7">discord.js-utilities/src/lib/PaginatedMessage.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L83">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:83</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The actions which are to be used.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="collector" class="tsd-anchor"></a>
+					<h3>collector</h3>
+					<div class="tsd-signature tsd-kind-icon">collector<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ReactionCollector</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> = null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L73">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:73</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The collector used for handling reactions.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="idle" class="tsd-anchor"></a>
 					<h3>idle</h3>
-					<div class="tsd-signature tsd-kind-icon">idle<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 20 * 1000</span></div>
+					<div class="tsd-signature tsd-kind-icon">idle<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = Time.Minute * 20</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphire-project/utilities/blob/ef045f2/packages/discord.js-utilities/src/lib/PaginatedMessage.ts#L11">discord.js-utilities/src/lib/PaginatedMessage.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L93">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:93</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The amount of milliseconds to idle before the paginator is closed. Defaults to 20 minutes.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="index" class="tsd-anchor"></a>
@@ -181,9 +286,14 @@
 					<div class="tsd-signature tsd-kind-icon">index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphire-project/utilities/blob/ef045f2/packages/discord.js-utilities/src/lib/PaginatedMessage.ts#L9">discord.js-utilities/src/lib/PaginatedMessage.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L88">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:88</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The handler&#39;s current page/message index.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="messages" class="tsd-anchor"></a>
@@ -191,9 +301,14 @@
 					<div class="tsd-signature tsd-kind-icon">messages<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">APIMessage</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphire-project/utilities/blob/ef045f2/packages/discord.js-utilities/src/lib/PaginatedMessage.ts#L5">discord.js-utilities/src/lib/PaginatedMessage.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L78">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:78</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The pages which were converted from <a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#pages">PaginatedMessage.pages</a></p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="pages" class="tsd-anchor"></a>
@@ -201,19 +316,132 @@
 					<div class="tsd-signature tsd-kind-icon">pages<span class="tsd-signature-symbol">:</span> <a href="../modules/_sapphire_discord_js_utilities.html#messagepage-1" class="tsd-signature-type">MessagePage</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphire-project/utilities/blob/ef045f2/packages/discord.js-utilities/src/lib/PaginatedMessage.ts#L4">discord.js-utilities/src/lib/PaginatedMessage.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L63">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:63</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The pages to be converted to <a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#messages">PaginatedMessage.messages</a></p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="response" class="tsd-anchor"></a>
+					<h3>response</h3>
+					<div class="tsd-signature tsd-kind-icon">response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> = null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L68">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:68</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The response message used to edit on page changes.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="template" class="tsd-anchor"></a>
+					<h3>template</h3>
+					<div class="tsd-signature tsd-kind-icon">template<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">MessageOptions</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L99">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:99</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The template for this <a href="../modules/_sapphire_discord_js_utilities.html#paginatedmessage">PaginatedMessage</a>.
+							You can use templates to set defaults that will apply to each and every page in the <a href="../modules/_sapphire_discord_js_utilities.html#paginatedmessage">PaginatedMessage</a></p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
 					<a name="defaultactions" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> default<wbr>Actions</h3>
-					<div class="tsd-signature tsd-kind-icon">default<wbr>Actions<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html" class="tsd-signature-type">IPaginatedMessageAction</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [{id: &#x27;🔢&#x27;,run: async ({ handler, author, channel }) &#x3D;&gt; {const questionMessage &#x3D; await channel.send(&#x27;What page would you like to jump to?&#x27;);const collected &#x3D; await channel.awaitMessages((message: Message) &#x3D;&gt; message.author.id &#x3D;&#x3D;&#x3D; author.id, { max: 1, idle: 15 * 1000 }).catch(() &#x3D;&gt; null);if (collected) {const responseMessage &#x3D; collected.first();if (questionMessage.deletable) await questionMessage.delete();if (responseMessage) {if (responseMessage.deletable) await responseMessage.delete();const i &#x3D; Number(responseMessage.content) - 1;if (!Number.isNaN(i) &amp;&amp; handler.pages[i]) handler.index &#x3D; i;}}}},{id: &#x27;⏪&#x27;,run: ({ handler }) &#x3D;&gt; (handler.index &#x3D; 0)},{id: &#x27;◀️&#x27;,run: ({ handler }) &#x3D;&gt; {if (handler.index !&#x3D;&#x3D; 0) --handler.index;}},{id: &#x27;▶️&#x27;,run: ({ handler }) &#x3D;&gt; {if (handler.index !&#x3D;&#x3D; handler.pages.length - 1) ++handler.index;}},{id: &#x27;⏩&#x27;,run: ({ handler }) &#x3D;&gt; (handler.index &#x3D; handler.pages.length - 1)},{id: &#x27;⏹️&#x27;,run: async ({ response, collector }) &#x3D;&gt; {await response!.reactions.removeAll();collector!.stop();}}]</span></div>
+					<div class="tsd-signature tsd-kind-icon">default<wbr>Actions<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html" class="tsd-signature-type">IPaginatedMessageAction</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [{id: &#x27;🔢&#x27;,run: async ({ handler, author, channel }) &#x3D;&gt; {const questionMessage &#x3D; await channel.send(PaginatedMessage.promptMessage);const collected &#x3D; await channel.awaitMessages((message: Message) &#x3D;&gt; message.author.id &#x3D;&#x3D;&#x3D; author.id, { max: 1, idle: Time.Minute * 20 }).catch(() &#x3D;&gt; null);if (collected) {const responseMessage &#x3D; collected.first();if (questionMessage.deletable) await questionMessage.delete();if (responseMessage) {if (responseMessage.deletable) await responseMessage.delete();const i &#x3D; Number(responseMessage.content) - 1;if (!Number.isNaN(i) &amp;&amp; handler.hasPage(i)) handler.index &#x3D; i;}}}},{id: &#x27;⏪&#x27;,run: ({ handler }) &#x3D;&gt; (handler.index &#x3D; 0)},{id: &#x27;◀️&#x27;,run: ({ handler }) &#x3D;&gt; {if (handler.index &#x3D;&#x3D;&#x3D; 0) handler.index &#x3D; handler.pages.length - 1;else --handler.index;}},{id: &#x27;▶️&#x27;,run: ({ handler }) &#x3D;&gt; {if (handler.index &#x3D;&#x3D;&#x3D; handler.pages.length - 1) handler.index &#x3D; 0;else ++handler.index;}},{id: &#x27;⏩&#x27;,run: ({ handler }) &#x3D;&gt; (handler.index &#x3D; handler.pages.length - 1)},{id: &#x27;⏹️&#x27;,run: async ({ response, collector }) &#x3D;&gt; {if (isGuildBasedChannel(response.channel) &amp;&amp;response.client.user &amp;&amp;response.channel.permissionsFor(response.client.user.id)?.has(&#x27;MANAGE_MESSAGES&#x27;)) {await response.reactions.removeAll();}collector.stop();}}]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphire-project/utilities/blob/ef045f2/packages/discord.js-utilities/src/lib/PaginatedMessage.ts#L120">discord.js-utilities/src/lib/PaginatedMessage.ts:120</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L557">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:557</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The default actions of this handler.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="deletionstopreasons" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> deletion<wbr>Stop<wbr>Reasons</h3>
+					<div class="tsd-signature tsd-kind-icon">deletion<wbr>Stop<wbr>Reasons<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [&#x27;messageDelete&#x27;, &#x27;channelDelete&#x27;, &#x27;guildDelete&#x27;]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L622">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:622</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The reasons sent by <a href="https://discord.js.org/#/docs/main/stable/class/ReactionCollector?scrollTo=e-end" class="external">ReactionCollector#end</a>
+							event when the message (or its owner) has been deleted.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="handlers" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> handlers</h3>
+					<div class="tsd-signature tsd-kind-icon">handlers<span class="tsd-signature-symbol">:</span> <a href="_sapphire_ratelimits.ratelimitmanager.html#map" class="tsd-signature-type">Map</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html" class="tsd-signature-type">PaginatedMessage</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = new Map&lt;string, PaginatedMessage&gt;()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L646">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:646</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The current {@link ReactionCollector} handlers that are active.
+							The key is the ID of of the author who sent the message that triggered this <a href="../modules/_sapphire_discord_js_utilities.html#paginatedmessage">PaginatedMessage</a></p>
+						</div>
+						<p>This is to ensure that any given author can only trigger 1 <a href="../modules/_sapphire_discord_js_utilities.html#paginatedmessage">PaginatedMessage</a>.
+						This is important for performance reasons, and users should not have more than 1 <a href="../modules/_sapphire_discord_js_utilities.html#paginatedmessage">PaginatedMessage</a> open at once.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="messages-1" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> messages</h3>
+					<div class="tsd-signature tsd-kind-icon">messages<span class="tsd-signature-symbol">:</span> <a href="_sapphire_ratelimits.ratelimitmanager.html#map" class="tsd-signature-type">Map</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="_sapphire_discord_js_utilities.paginatedmessage-1.html" class="tsd-signature-type">PaginatedMessage</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = new Map&lt;string, PaginatedMessage&gt;()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L637">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:637</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The messages that are currently being handled by a <a href="../modules/_sapphire_discord_js_utilities.html#paginatedmessage">PaginatedMessage</a>
+							The key is the ID of the message that triggered this <a href="../modules/_sapphire_discord_js_utilities.html#paginatedmessage">PaginatedMessage</a></p>
+						</div>
+						<p>This is to ensure that only 1 <a href="../modules/_sapphire_discord_js_utilities.html#paginatedmessage">PaginatedMessage</a> can run on a specified message at once.
+						This is important when having an editable commands solution.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="promptmessage" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> prompt<wbr>Message</h3>
+					<div class="tsd-signature tsd-kind-icon">prompt<wbr>Message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;What page would you like to jump to?&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L628">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:628</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Custom prompt message when a user wants to jump to a certain page number.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>default</dt>
+							<dd><p>&quot;What page would you like to jump to?&quot;</p>
+							</dd>
+						</dl>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -228,13 +456,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphire-project/utilities/blob/ef045f2/packages/discord.js-utilities/src/lib/PaginatedMessage.ts#L40">discord.js-utilities/src/lib/PaginatedMessage.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L159">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:159</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds an action to the existing ones. This will be added as the last action.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>action: <a href="../interfaces/_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html" class="tsd-signature-type">IPaginatedMessageAction</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The action to add.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
@@ -251,13 +487,120 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphire-project/utilities/blob/ef045f2/packages/discord.js-utilities/src/lib/PaginatedMessage.ts#L35">discord.js-utilities/src/lib/PaginatedMessage.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L150">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:150</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds actions to the existing ones. The order given is the order they will be used.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>actions: <a href="../interfaces/_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html" class="tsd-signature-type">IPaginatedMessageAction</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The actions to add.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addasyncpagebuilder" class="tsd-anchor"></a>
+					<h3>add<wbr>Async<wbr>Page<wbr>Builder</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Async<wbr>Page<wbr>Builder<span class="tsd-signature-symbol">(</span>builder<span class="tsd-signature-symbol">: </span><a href="_sapphire_discord_js_utilities.messagebuilder.html" class="tsd-signature-type">MessageBuilder</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>builder<span class="tsd-signature-symbol">: </span><a href="_sapphire_discord_js_utilities.messagebuilder.html" class="tsd-signature-type">MessageBuilder</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_sapphire_discord_js_utilities.messagebuilder.html" class="tsd-signature-type">MessageBuilder</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L261">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:261</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a page to the existing ones asynchronously using a <a href="_sapphire_discord_js_utilities.messagebuilder.html">MessageBuilder</a>. This wil be added as the last page.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-typescript"><span class="hljs-keyword">const</span> { PaginatedMessage } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@sapphire/discord.js-utilities&#x27;</span>);
+<span class="hljs-keyword">const</span> { MessageEmbed } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;discord.js&#x27;</span>);
+
+<span class="hljs-keyword">const</span> paginatedMessage = <span class="hljs-keyword">new</span> PaginatedMessage()
+    .addAsyncPageBuilder(<span class="hljs-keyword">async</span> (builder) =&gt; {
+        <span class="hljs-keyword">const</span> someRemoteData = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">&#x27;https://contoso.com/api/users&#x27;</span>);
+
+        <span class="hljs-keyword">const</span> embed = <span class="hljs-keyword">new</span> MessageEmbed()
+            .setColor(<span class="hljs-string">&#x27;#FF0000&#x27;</span>)
+            .setDescription(someRemoteData.data);
+
+        <span class="hljs-keyword">return</span> builder
+            .setContent(<span class="hljs-string">&#x27;example content&#x27;</span>)
+            .setEmbed(embed);
+});
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>builder: <a href="_sapphire_discord_js_utilities.messagebuilder.html" class="tsd-signature-type">MessageBuilder</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>builder<span class="tsd-signature-symbol">: </span><a href="_sapphire_discord_js_utilities.messagebuilder.html" class="tsd-signature-type">MessageBuilder</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_sapphire_discord_js_utilities.messagebuilder.html" class="tsd-signature-type">MessageBuilder</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Either a callback whose first parameter is <code>new MessageBuilder()</code>, or an already constructed <a href="_sapphire_discord_js_utilities.messagebuilder.html">MessageBuilder</a></p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addasyncpageembed" class="tsd-anchor"></a>
+					<h3>add<wbr>Async<wbr>Page<wbr>Embed</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Async<wbr>Page<wbr>Embed<span class="tsd-signature-symbol">(</span>embed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>builder<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L331">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:331</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a page to the existing ones asynchronously using a {@link MessageEmbed}. This wil be added as the last page.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-typescript"><span class="hljs-keyword">const</span> { PaginatedMessage } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@sapphire/discord.js-utilities&#x27;</span>);
+
+<span class="hljs-keyword">const</span> paginatedMessage = <span class="hljs-keyword">new</span> PaginatedMessage()
+    .addAsyncPageEmbed(<span class="hljs-keyword">async</span> (embed) =&gt; {
+        <span class="hljs-keyword">const</span> someRemoteData = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">&#x27;https://contoso.com/api/users&#x27;</span>);
+
+        embed
+            .setColor(<span class="hljs-string">&#x27;#FF0000&#x27;</span>)
+            .setDescription(someRemoteData.data);
+
+        <span class="hljs-keyword">return</span> embed;
+});
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>embed: <span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>builder<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Either a callback whose first paramter is <code>new MessageEmbed()</code>, or an already constructed {@link MessageEmbed}</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
@@ -274,13 +617,192 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphire-project/utilities/blob/ef045f2/packages/discord.js-utilities/src/lib/PaginatedMessage.ts#L57">discord.js-utilities/src/lib/PaginatedMessage.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L193">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:193</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a page to the existing ones. This will be added as the last page.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remark</dt>
+									<dd><p>While you can use this method you should first check out
+											<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addpagebuilder">PaginatedMessage.addPageBuilder</a>,
+											<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addpagecontent">PaginatedMessage.addPageContent</a> and
+											<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addpageembed">PaginatedMessage.addPageEmbed</a> as
+										these are easier functional methods of adding pages and will likely already suffice for your needs.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>page: <a href="../modules/_sapphire_discord_js_utilities.html#messagepage-1" class="tsd-signature-type">MessagePage</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The page to add.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addpagebuilder" class="tsd-anchor"></a>
+					<h3>add<wbr>Page<wbr>Builder</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Page<wbr>Builder<span class="tsd-signature-symbol">(</span>builder<span class="tsd-signature-symbol">: </span><a href="_sapphire_discord_js_utilities.messagebuilder.html" class="tsd-signature-type">MessageBuilder</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>builder<span class="tsd-signature-symbol">: </span><a href="_sapphire_discord_js_utilities.messagebuilder.html" class="tsd-signature-type">MessageBuilder</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="_sapphire_discord_js_utilities.messagebuilder.html" class="tsd-signature-type">MessageBuilder</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L235">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:235</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a page to the existing ones using a <a href="_sapphire_discord_js_utilities.messagebuilder.html">MessageBuilder</a>. This will be added as the last page.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-typescript"><span class="hljs-keyword">const</span> { PaginatedMessage } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@sapphire/discord.js-utilities&#x27;</span>);
+<span class="hljs-keyword">const</span> { MessageEmbed } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;discord.js&#x27;</span>);
+
+<span class="hljs-keyword">const</span> paginatedMessage = <span class="hljs-keyword">new</span> PaginatedMessage()
+    .addPageBuilder(<span class="hljs-function">(<span class="hljs-params">builder</span>) =&gt;</span> {
+        <span class="hljs-keyword">const</span> embed = <span class="hljs-keyword">new</span> MessageEmbed()
+            .setColor(<span class="hljs-string">&#x27;#FF0000&#x27;</span>)
+            .setDescription(<span class="hljs-string">&#x27;example description&#x27;</span>);
+
+        <span class="hljs-keyword">return</span> builder
+            .setContent(<span class="hljs-string">&#x27;example content&#x27;</span>)
+            .setEmbed(embed);
+});
+</code></pre>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-typescript"><span class="hljs-keyword">const</span> { MessageEmbed } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;discord.js&#x27;</span>);
+<span class="hljs-keyword">const</span> { MessageBuilder, PaginatedMessage } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@sapphire/discord.js-utilities&#x27;</span>);
+
+<span class="hljs-keyword">const</span> embed = <span class="hljs-keyword">new</span> MessageEmbed()
+    .setColor(<span class="hljs-string">&#x27;#FF0000&#x27;</span>)
+    .setDescription(<span class="hljs-string">&#x27;example description&#x27;</span>);
+
+<span class="hljs-keyword">const</span> builder = <span class="hljs-keyword">new</span> MessageBuilder()
+    .setContent(<span class="hljs-string">&#x27;example content&#x27;</span>)
+    .setEmbed(embed);
+
+<span class="hljs-keyword">const</span> paginatedMessage = <span class="hljs-keyword">new</span> PaginatedMessage()
+    .addPageBuilder(builder);
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>builder: <a href="_sapphire_discord_js_utilities.messagebuilder.html" class="tsd-signature-type">MessageBuilder</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>builder<span class="tsd-signature-symbol">: </span><a href="_sapphire_discord_js_utilities.messagebuilder.html" class="tsd-signature-type">MessageBuilder</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="_sapphire_discord_js_utilities.messagebuilder.html" class="tsd-signature-type">MessageBuilder</a><span class="tsd-signature-symbol">)</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Either a callback whose first parameter is <code>new MessageBuilder()</code>, or an already constructed <a href="_sapphire_discord_js_utilities.messagebuilder.html">MessageBuilder</a></p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addpagecontent" class="tsd-anchor"></a>
+					<h3>add<wbr>Page<wbr>Content</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Page<wbr>Content<span class="tsd-signature-symbol">(</span>content<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L276">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:276</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a page to the existing ones using simple message content. This will be added as the last page.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-typescript"><span class="hljs-keyword">const</span> { PaginatedMessage } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@sapphire/discord.js-utilities&#x27;</span>);
+
+<span class="hljs-keyword">const</span> paginatedMessage = <span class="hljs-keyword">new</span> PaginatedMessage()
+    .addPageContent(<span class="hljs-string">&#x27;example content&#x27;</span>);
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>content: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The content to set.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addpageembed" class="tsd-anchor"></a>
+					<h3>add<wbr>Page<wbr>Embed</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Page<wbr>Embed<span class="tsd-signature-symbol">(</span>embed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>embed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L308">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:308</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a page to the existing ones using a {@link MessageEmbed}. This wil be added as the last page.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-typescript"><span class="hljs-keyword">const</span> { PaginatedMessage } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@sapphire/discord.js-utilities&#x27;</span>);
+
+<span class="hljs-keyword">const</span> paginatedMessage = <span class="hljs-keyword">new</span> PaginatedMessage()
+    .addPageEmbed(<span class="hljs-function">(<span class="hljs-params">embed</span>) =&gt;</span> {
+        embed
+            .setColor(<span class="hljs-string">&#x27;#FF0000&#x27;</span>)
+            .setDescription(<span class="hljs-string">&#x27;example description&#x27;</span>);
+
+        <span class="hljs-keyword">return</span> embed;
+});
+</code></pre>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-typescript"><span class="hljs-keyword">const</span> { PaginatedMessage } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@sapphire/discord.js-utilities&#x27;</span>);
+
+<span class="hljs-keyword">const</span> embed = <span class="hljs-keyword">new</span> MessageEmbed()
+    .setColor(<span class="hljs-string">&#x27;#FF0000&#x27;</span>)
+    .setDescription(<span class="hljs-string">&#x27;example description&#x27;</span>);
+
+<span class="hljs-keyword">const</span> paginatedMessage = <span class="hljs-keyword">new</span> PaginatedMessage()
+    .addPageEmbed(embed);
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>embed: <span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>embed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol">)</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Either a callback whose first paramter is <code>new MessageEmbed()</code>, or an already constructed {@link MessageEmbed}</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
@@ -297,16 +819,102 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphire-project/utilities/blob/ef045f2/packages/discord.js-utilities/src/lib/PaginatedMessage.ts#L52">discord.js-utilities/src/lib/PaginatedMessage.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L339">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:339</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Add pages to the existing ones. The order given is the order they will be used.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pages: <a href="../modules/_sapphire_discord_js_utilities.html#messagepage-1" class="tsd-signature-type">MessagePage</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The pages to add.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="applyfooter" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> apply<wbr>Footer</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">apply<wbr>Footer<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">APIMessage</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">APIMessage</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L512">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:512</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>pages: <a href="../modules/_sapphire_discord_js_utilities.html#messagepage-1" class="tsd-signature-type">MessagePage</a><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>message: <span class="tsd-signature-type">APIMessage</span></h5>
+								</li>
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">APIMessage</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="applytemplate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> apply<wbr>Template</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">apply<wbr>Template<span class="tsd-signature-symbol">(</span>template<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MessageOptions</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MessageOptions</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L521">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:521</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>template: <span class="tsd-signature-type">MessageOptions</span></h5>
+								</li>
+								<li>
+									<h5>options: <span class="tsd-signature-type">MessageOptions</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MessageOptions</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="applytemplateembed" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> apply<wbr>Template<wbr>Embed</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">apply<wbr>Template<wbr>Embed<span class="tsd-signature-symbol">(</span>template<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EmbedResolvable</span>, embed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EmbedResolvable</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MessageEmbedOptions</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L525">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:525</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>template: <span class="tsd-signature-type">EmbedResolvable</span></h5>
+								</li>
+								<li>
+									<h5>embed: <span class="tsd-signature-type">EmbedResolvable</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MessageEmbedOptions</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -320,10 +928,230 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphire-project/utilities/blob/ef045f2/packages/discord.js-utilities/src/lib/PaginatedMessage.ts#L114">discord.js-utilities/src/lib/PaginatedMessage.ts:114</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L410">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:410</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Clones the current handler into a new instance.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="_sapphire_discord_js_utilities.paginatedmessage-1.html" class="tsd-signature-type">PaginatedMessage</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="handlecollect" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> handle<wbr>Collect</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">handle<wbr>Collect<span class="tsd-signature-symbol">(</span>author<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">User</span>, channel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"channel"</span><span class="tsd-signature-symbol">]</span>, reaction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MessageReaction</span>, user<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">User</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L471">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:471</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Handles the <code>collect</code> event from the collector.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>author: <span class="tsd-signature-type">User</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The the handler is for.</p>
+									</div>
+								</li>
+								<li>
+									<h5>channel: <span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"channel"</span><span class="tsd-signature-symbol">]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The channel the handler is running at.</p>
+									</div>
+								</li>
+								<li>
+									<h5>reaction: <span class="tsd-signature-type">MessageReaction</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The reaction that was received.</p>
+									</div>
+								</li>
+								<li>
+									<h5>user: <span class="tsd-signature-type">User</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The user that reacted to the message.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="handleend" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> handle<wbr>End</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">handle<wbr>End<span class="tsd-signature-symbol">(</span>_<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Collection</span><span class="tsd-signature-symbol">&lt;</span><a href="_sapphire_snowflake.snowflake.html" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">MessageReaction</span><span class="tsd-signature-symbol">&gt;</span>, reason<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L496">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:496</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Handles the <code>end</code> event from the collector.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_: <span class="tsd-signature-type">Collection</span><span class="tsd-signature-symbol">&lt;</span><a href="_sapphire_snowflake.snowflake.html" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">MessageReaction</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5>reason: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The reason for which the collector was ended.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="handlepageload" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> handle<wbr>Page<wbr>Load</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">handle<wbr>Page<wbr>Load<span class="tsd-signature-symbol">(</span>page<span class="tsd-signature-symbol">: </span><a href="../modules/_sapphire_discord_js_utilities.html#messagepage-1" class="tsd-signature-type">MessagePage</a>, channel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"channel"</span><span class="tsd-signature-symbol">]</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">APIMessage</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L458">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:458</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Handles the load of a page.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>page: <a href="../modules/_sapphire_discord_js_utilities.html#messagepage-1" class="tsd-signature-type">MessagePage</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The page to be loaded.</p>
+									</div>
+								</li>
+								<li>
+									<h5>channel: <span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"channel"</span><span class="tsd-signature-symbol">]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The channel the paginated message runs at.</p>
+									</div>
+								</li>
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The index of the current page.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">APIMessage</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="haspage" class="tsd-anchor"></a>
+					<h3>has<wbr>Page</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">has<wbr>Page<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L168">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:168</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks whether or not the handler has a specific page.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The index to check.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
+					<a name="mergearrays" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> merge<wbr>Arrays</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">merge<wbr>Arrays&lt;T&gt;<span class="tsd-signature-symbol">(</span>template<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, array<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L548">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:548</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> template: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> array: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="mergeembeds" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> merge<wbr>Embeds</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">merge<wbr>Embeds<span class="tsd-signature-symbol">(</span>template<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MessageEmbedOptions</span>, embed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MessageEmbedOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MessageEmbedOptions</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L531">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:531</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>template: <span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MessageEmbedOptions</span></h5>
+								</li>
+								<li>
+									<h5>embed: <span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MessageEmbedOptions</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MessageEmbedOptions</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -331,22 +1159,33 @@
 					<a name="resolvepage" class="tsd-anchor"></a>
 					<h3>resolve<wbr>Page</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">resolve<wbr>Page<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">APIMessage</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">resolve<wbr>Page<span class="tsd-signature-symbol">(</span>channel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"channel"</span><span class="tsd-signature-symbol">]</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">APIMessage</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphire-project/utilities/blob/ef045f2/packages/discord.js-utilities/src/lib/PaginatedMessage.ts#L107">discord.js-utilities/src/lib/PaginatedMessage.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L395">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:395</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Executed whenever an action is triggered and resolved.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> index: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = this.index</span></h5>
+									<h5>channel: <span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"channel"</span><span class="tsd-signature-symbol">]</span></h5>
+								</li>
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The index to resolve.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">APIMessage</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">APIMessage</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -354,15 +1193,26 @@
 					<a name="resolvepagesonrun" class="tsd-anchor"></a>
 					<h3>resolve<wbr>Pages<wbr>OnRun</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">resolve<wbr>Pages<wbr>OnRun<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">resolve<wbr>Pages<wbr>OnRun<span class="tsd-signature-symbol">(</span>channel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"channel"</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphire-project/utilities/blob/ef045f2/packages/discord.js-utilities/src/lib/PaginatedMessage.ts#L103">discord.js-utilities/src/lib/PaginatedMessage.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L387">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:387</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Executed whenever <a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#run">PaginatedMessage.run</a> is called.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>channel: <span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"channel"</span><span class="tsd-signature-symbol">]</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -371,22 +1221,29 @@
 					<a name="run" class="tsd-anchor"></a>
 					<h3>run</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>author<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">User</span>, channel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TextChannel</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NewsChannel</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphire-project/utilities/blob/ef045f2/packages/discord.js-utilities/src/lib/PaginatedMessage.ts#L63">discord.js-utilities/src/lib/PaginatedMessage.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L350">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:350</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Executes the <a href="../modules/_sapphire_discord_js_utilities.html#paginatedmessage">PaginatedMessage</a> and sends the pages corresponding with <a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#index">PaginatedMessage.index</a>.
+									The handler will start collecting reactions and running actions once all actions have been reacted to the message.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>author: <span class="tsd-signature-type">User</span></h5>
-								</li>
-								<li>
-									<h5>channel: <span class="tsd-signature-type">TextChannel</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NewsChannel</span></h5>
+									<h5>message: <span class="tsd-signature-type">Message</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The message that triggered this <a href="../modules/_sapphire_discord_js_utilities.html#paginatedmessage">PaginatedMessage</a>.
+										Generally this will be the command message, but it can also be another message from your bot, i.e. to indicate a loading state.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -403,13 +1260,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphire-project/utilities/blob/ef045f2/packages/discord.js-utilities/src/lib/PaginatedMessage.ts#L30">discord.js-utilities/src/lib/PaginatedMessage.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L141">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:141</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Clears all current actions and sets them. The order given is the order they will be used.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>actions: <a href="../interfaces/_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html" class="tsd-signature-type">IPaginatedMessageAction</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The actions to set.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
@@ -426,13 +1291,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphire-project/utilities/blob/ef045f2/packages/discord.js-utilities/src/lib/PaginatedMessage.ts#L25">discord.js-utilities/src/lib/PaginatedMessage.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L132">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:132</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the amount of time to idle before the paginator is closed.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>idle: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The number to set the idle to.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
@@ -449,13 +1322,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphire-project/utilities/blob/ef045f2/packages/discord.js-utilities/src/lib/PaginatedMessage.ts#L20">discord.js-utilities/src/lib/PaginatedMessage.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L123">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:123</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the handler&#39;s current page/message index.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The number to set the index to.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
@@ -472,16 +1353,144 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphire-project/utilities/blob/ef045f2/packages/discord.js-utilities/src/lib/PaginatedMessage.ts#L45">discord.js-utilities/src/lib/PaginatedMessage.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L176">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:176</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Clears all current pages and messages and sets them. The order given is the order they will be used.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pages: <a href="../modules/_sapphire_discord_js_utilities.html#messagepage-1" class="tsd-signature-type">MessagePage</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The pages to set.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setpromptmessage" class="tsd-anchor"></a>
+					<h3>set<wbr>Prompt<wbr>Message</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Prompt<wbr>Message<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L114">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:114</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>pages: <a href="../modules/_sapphire_discord_js_utilities.html#messagepage-1" class="tsd-signature-type">MessagePage</a><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>message: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="setupmessage" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> set<wbr>UpMessage</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>UpMessage<span class="tsd-signature-symbol">(</span>channel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"channel"</span><span class="tsd-signature-symbol">]</span>, author<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">User</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L423">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:423</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets up the message.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>channel: <span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"channel"</span><span class="tsd-signature-symbol">]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The channel the handler is running at.</p>
+									</div>
+								</li>
+								<li>
+									<h5>author: <span class="tsd-signature-type">User</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The author the handler is for.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="setupreactions" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> set<wbr>UpReactions</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>UpReactions<span class="tsd-signature-symbol">(</span>channel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"channel"</span><span class="tsd-signature-symbol">]</span>, author<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">User</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L435">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:435</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets up the message&#39;s reactions and the collector.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>channel: <span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"channel"</span><span class="tsd-signature-symbol">]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The channel the handler is running at.</p>
+									</div>
+								</li>
+								<li>
+									<h5>author: <span class="tsd-signature-type">User</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The author the handler is for.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
+					<a name="resolvetemplate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> resolve<wbr>Template</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">resolve<wbr>Template<span class="tsd-signature-symbol">(</span>template<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MessageOptions</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ad62513/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L648">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:648</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> template: <span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MessageOptions</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MessageOptions</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -494,6 +1503,9 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="../modules/_sapphire_async_queue.html">@sapphire/async-<wbr>queue</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="../modules/_sapphire_decorators.html">@sapphire/decorators</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -503,10 +1515,16 @@
 						<a href="../modules/_sapphire_discord_js_utilities.html">@sapphire/discord.js-<wbr>utilities</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="../modules/_sapphire_embed_jsx.html">@sapphire/embed-<wbr>jsx</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="../modules/_sapphire_eslint_config.html">@sapphire/eslint-<wbr>config</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_sapphire_event_iterator.html">@sapphire/event-<wbr>iterator</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_sapphire_fetch.html">@sapphire/fetch</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_sapphire_prettier_config.html">@sapphire/prettier-<wbr>config</a>
@@ -527,60 +1545,12 @@
 						<a href="../modules/_sapphire_ts_config.html">@sapphire/ts-<wbr>config</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_sapphire_type.html">@sapphire/type</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_sapphire_utilities.html">@sapphire/utilities</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-reference tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#ipaginatedmessageaction" class="tsd-kind-icon">IPaginated<wbr>Message<wbr>Action</a>
-					</li>
-					<li class=" tsd-kind-reference tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#lazypaginatedmessage" class="tsd-kind-icon">Lazy<wbr>Paginated<wbr>Message</a>
-					</li>
-					<li class=" tsd-kind-reference tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#messagepage" class="tsd-kind-icon">Message<wbr>Page</a>
-					</li>
-					<li class=" tsd-kind-reference tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#paginatedmessage" class="tsd-kind-icon">Paginated<wbr>Message</a>
-					</li>
-					<li class=" tsd-kind-reference tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#paginatedmessageactioncontext" class="tsd-kind-icon">Paginated<wbr>Message<wbr>Action<wbr>Context</a>
-					</li>
-					<li class=" tsd-kind-reference tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#paginatedmessageoptions" class="tsd-kind-icon">Paginated<wbr>Message<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-reference tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#iscategorychannel" class="tsd-kind-icon">is<wbr>Category<wbr>Channel</a>
-					</li>
-					<li class=" tsd-kind-reference tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#isdmchannel" class="tsd-kind-icon">isDMChannel</a>
-					</li>
-					<li class=" tsd-kind-reference tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#isgroupchannel" class="tsd-kind-icon">is<wbr>Group<wbr>Channel</a>
-					</li>
-					<li class=" tsd-kind-reference tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#isguildbasedchannel" class="tsd-kind-icon">is<wbr>Guild<wbr>Based<wbr>Channel</a>
-					</li>
-					<li class=" tsd-kind-reference tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#isnewschannel" class="tsd-kind-icon">is<wbr>News<wbr>Channel</a>
-					</li>
-					<li class=" tsd-kind-reference tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#isstorechannel" class="tsd-kind-icon">is<wbr>Store<wbr>Channel</a>
-					</li>
-					<li class=" tsd-kind-reference tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#istextchannel" class="tsd-kind-icon">is<wbr>Text<wbr>Channel</a>
-					</li>
-					<li class=" tsd-kind-reference tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#isvoicechannel" class="tsd-kind-icon">is<wbr>Voice<wbr>Channel</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="_sapphire_discord_js_utilities.lazypaginatedmessage-1.html" class="tsd-kind-icon">Lazy<wbr>Paginated<wbr>Message</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
@@ -591,6 +1561,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#actions" class="tsd-kind-icon">actions</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#collector" class="tsd-kind-icon">collector</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#idle" class="tsd-kind-icon">idle</a>
@@ -604,8 +1577,26 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#pages" class="tsd-kind-icon">pages</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#response" class="tsd-kind-icon">response</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#template" class="tsd-kind-icon">template</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
 								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#defaultactions" class="tsd-kind-icon">default<wbr>Actions</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#deletionstopreasons" class="tsd-kind-icon">deletion<wbr>Stop<wbr>Reasons</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#handlers" class="tsd-kind-icon">handlers</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#messages-1" class="tsd-kind-icon">messages</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#promptmessage" class="tsd-kind-icon">prompt<wbr>Message</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addaction" class="tsd-kind-icon">add<wbr>Action</a>
@@ -614,13 +1605,55 @@
 								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addactions" class="tsd-kind-icon">add<wbr>Actions</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addasyncpagebuilder" class="tsd-kind-icon">add<wbr>Async<wbr>Page<wbr>Builder</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addasyncpageembed" class="tsd-kind-icon">add<wbr>Async<wbr>Page<wbr>Embed</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addpage" class="tsd-kind-icon">add<wbr>Page</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addpagebuilder" class="tsd-kind-icon">add<wbr>Page<wbr>Builder</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addpagecontent" class="tsd-kind-icon">add<wbr>Page<wbr>Content</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addpageembed" class="tsd-kind-icon">add<wbr>Page<wbr>Embed</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#addpages" class="tsd-kind-icon">add<wbr>Pages</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#applyfooter" class="tsd-kind-icon">apply<wbr>Footer</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#applytemplate" class="tsd-kind-icon">apply<wbr>Template</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#applytemplateembed" class="tsd-kind-icon">apply<wbr>Template<wbr>Embed</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#clone" class="tsd-kind-icon">clone</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#handlecollect" class="tsd-kind-icon">handle<wbr>Collect</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#handleend" class="tsd-kind-icon">handle<wbr>End</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#handlepageload" class="tsd-kind-icon">handle<wbr>Page<wbr>Load</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#haspage" class="tsd-kind-icon">has<wbr>Page</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#mergearrays" class="tsd-kind-icon">merge<wbr>Arrays</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#mergeembeds" class="tsd-kind-icon">merge<wbr>Embeds</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#resolvepage" class="tsd-kind-icon">resolve<wbr>Page</a>
@@ -643,46 +1676,22 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#setpages" class="tsd-kind-icon">set<wbr>Pages</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#setpromptmessage" class="tsd-kind-icon">set<wbr>Prompt<wbr>Message</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#setupmessage" class="tsd-kind-icon">set<wbr>UpMessage</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#setupreactions" class="tsd-kind-icon">set<wbr>UpReactions</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
+								<a href="_sapphire_discord_js_utilities.paginatedmessage-1.html#resolvetemplate" class="tsd-kind-icon">resolve<wbr>Template</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html" class="tsd-kind-icon">IPaginated<wbr>Message<wbr>Action</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_sapphire_discord_js_utilities.paginatedmessageactioncontext-1.html" class="tsd-kind-icon">Paginated<wbr>Message<wbr>Action<wbr>Context</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_sapphire_discord_js_utilities.paginatedmessageoptions-1.html" class="tsd-kind-icon">Paginated<wbr>Message<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#messagepage-1" class="tsd-kind-icon">Message<wbr>Page</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#iscategorychannel-1" class="tsd-kind-icon">is<wbr>Category<wbr>Channel</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#isdmchannel-1" class="tsd-kind-icon">isDMChannel</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#isgroupchannel-1" class="tsd-kind-icon">is<wbr>Group<wbr>Channel</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#isguildbasedchannel-1" class="tsd-kind-icon">is<wbr>Guild<wbr>Based<wbr>Channel</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#isnewschannel-1" class="tsd-kind-icon">is<wbr>News<wbr>Channel</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#isstorechannel-1" class="tsd-kind-icon">is<wbr>Store<wbr>Channel</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#istextchannel-1" class="tsd-kind-icon">is<wbr>Text<wbr>Channel</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_sapphire_discord_js_utilities.html#isvoicechannel-1" class="tsd-kind-icon">is<wbr>Voice<wbr>Channel</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
@@ -693,6 +1702,7 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
 				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
@@ -713,6 +1723,12 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
