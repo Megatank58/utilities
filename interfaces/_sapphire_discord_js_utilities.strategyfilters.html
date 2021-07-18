@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IPaginatedMessageAction | Sapphire Utilities</title>
+	<title>StrategyFilters | Sapphire Utilities</title>
 	<meta name="description" content="Documentation for Sapphire Utilities">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,51 +55,21 @@
 					<a href="../modules/_sapphire_discord_js_utilities.html">@sapphire/discord.js-utilities</a>
 				</li>
 				<li>
-					<a href="_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html">IPaginatedMessageAction</a>
+					<a href="_sapphire_discord_js_utilities.strategyfilters.html">StrategyFilters</a>
 				</li>
 			</ul>
-			<h1>Interface IPaginatedMessageAction</h1>
+			<h1>Interface StrategyFilters</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>To utilize actions you can use the <a href="../modules/_sapphire_discord_js_utilities.html#ipaginatedmessageaction">IPaginatedMessageAction</a> by implementing it into a class.</p>
-					</div>
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><pre><code class="language-typescript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ForwardAction</span> <span class="hljs-title">implements</span> <span class="hljs-title">IPaginatedMessageAction</span> </span>{
-  <span class="hljs-keyword">public</span> id = <span class="hljs-string">&#x27;▶️&#x27;</span>;
-
-  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-title">run</span>(<span class="hljs-params">{ handler }</span>)</span> {
-    <span class="hljs-keyword">if</span> (handler.index !== handler.pages.length - <span class="hljs-number">1</span>) ++handler.index;
-  }
-}
-
-<span class="hljs-comment">// You can also give the object directly.</span>
-
-<span class="hljs-keyword">const</span> StopAction: IPaginatedMessageAction {
-  <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;⏹️&#x27;</span>,
-  <span class="hljs-attr">disableResponseEdit</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">run</span>: <span class="hljs-function">(<span class="hljs-params">{ response, collector }</span>) =&gt;</span> {
-    <span class="hljs-keyword">await</span> response.reactions.removeAll();
-    collector!.stop();
-  }
-}
-</code></pre>
-						</dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IPaginatedMessageAction</span>
+						<span class="target">StrategyFilters</span>
 					</li>
 				</ul>
 			</section>
@@ -110,13 +80,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html#id" class="tsd-kind-icon">id</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Methods</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html#run" class="tsd-kind-icon">run</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_sapphire_discord_js_utilities.strategyfilters.html#_messageprompterstrategies_confirm_" class="tsd-kind-icon">[<wbr>Message<wbr>Prompter<wbr>Strategies.<wbr>Confirm]</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_sapphire_discord_js_utilities.strategyfilters.html#_messageprompterstrategies_message_" class="tsd-kind-icon">[<wbr>Message<wbr>Prompter<wbr>Strategies.<wbr>Message]</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_sapphire_discord_js_utilities.strategyfilters.html#_messageprompterstrategies_number_" class="tsd-kind-icon">[<wbr>Message<wbr>Prompter<wbr>Strategies.<wbr>Number]</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_sapphire_discord_js_utilities.strategyfilters.html#_messageprompterstrategies_reaction_" class="tsd-kind-icon">[<wbr>Message<wbr>Prompter<wbr>Strategies.<wbr>Reaction]</a></li>
 							</ul>
 						</section>
 					</div>
@@ -125,40 +92,44 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="id" class="tsd-anchor"></a>
-					<h3>id</h3>
-					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="_messageprompterstrategies_confirm_" class="tsd-anchor"></a>
+					<h3>[<wbr>Message<wbr>Prompter<wbr>Strategies.<wbr>Confirm]</h3>
+					<div class="tsd-signature tsd-kind-icon">[<wbr>Message<wbr>Prompter<wbr>Strategies.<wbr>Confirm]<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">MessageReaction</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">User</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L874">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:874</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts#L36">packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts:36</a></li>
 						</ul>
 					</aside>
 				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="run" class="tsd-anchor"></a>
-					<h3>run</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>context<span class="tsd-signature-symbol">: </span><a href="_sapphire_discord_js_utilities.paginatedmessageactioncontext-1.html" class="tsd-signature-type">PaginatedMessageActionContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_sapphire_utilities.html#awaited" class="tsd-signature-type">Awaited</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts#L875">packages/discord.js-utilities/src/lib/PaginatedMessages/PaginatedMessage.ts:875</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>context: <a href="_sapphire_discord_js_utilities.paginatedmessageactioncontext-1.html" class="tsd-signature-type">PaginatedMessageActionContext</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../modules/_sapphire_utilities.html#awaited" class="tsd-signature-type">Awaited</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="_messageprompterstrategies_message_" class="tsd-anchor"></a>
+					<h3>[<wbr>Message<wbr>Prompter<wbr>Strategies.<wbr>Message]</h3>
+					<div class="tsd-signature tsd-kind-icon">[<wbr>Message<wbr>Prompter<wbr>Strategies.<wbr>Message]<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts#L37">packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts:37</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="_messageprompterstrategies_number_" class="tsd-anchor"></a>
+					<h3>[<wbr>Message<wbr>Prompter<wbr>Strategies.<wbr>Number]</h3>
+					<div class="tsd-signature tsd-kind-icon">[<wbr>Message<wbr>Prompter<wbr>Strategies.<wbr>Number]<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">MessageReaction</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">User</span><span class="tsd-signature-symbol">]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts#L38">packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts:38</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="_messageprompterstrategies_reaction_" class="tsd-anchor"></a>
+					<h3>[<wbr>Message<wbr>Prompter<wbr>Strategies.<wbr>Reaction]</h3>
+					<div class="tsd-signature tsd-kind-icon">[<wbr>Message<wbr>Prompter<wbr>Strategies.<wbr>Reaction]<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">MessageReaction</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">User</span><span class="tsd-signature-symbol">]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts#L39">packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts:39</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -220,13 +191,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html" class="tsd-kind-icon">IPaginated<wbr>Message<wbr>Action</a>
+						<a href="_sapphire_discord_js_utilities.strategyfilters.html" class="tsd-kind-icon">Strategy<wbr>Filters</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html#id" class="tsd-kind-icon">id</a>
+								<a href="_sapphire_discord_js_utilities.strategyfilters.html#_messageprompterstrategies_confirm_" class="tsd-kind-icon">[<wbr>Message<wbr>Prompter<wbr>Strategies.<wbr>Confirm]</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_sapphire_discord_js_utilities.ipaginatedmessageaction-1.html#run" class="tsd-kind-icon">run</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_sapphire_discord_js_utilities.strategyfilters.html#_messageprompterstrategies_message_" class="tsd-kind-icon">[<wbr>Message<wbr>Prompter<wbr>Strategies.<wbr>Message]</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_sapphire_discord_js_utilities.strategyfilters.html#_messageprompterstrategies_number_" class="tsd-kind-icon">[<wbr>Message<wbr>Prompter<wbr>Strategies.<wbr>Number]</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_sapphire_discord_js_utilities.strategyfilters.html#_messageprompterstrategies_reaction_" class="tsd-kind-icon">[<wbr>Message<wbr>Prompter<wbr>Strategies.<wbr>Reaction]</a>
 							</li>
 						</ul>
 					</li>
@@ -254,7 +231,6 @@
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>

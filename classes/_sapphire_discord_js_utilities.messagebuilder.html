@@ -68,8 +68,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>A message builder class, it implements the <a href="https://discord.js.org/#/docs/main/stable/typedef/MessageOptions" class="external">MessageOptions</a>
-						interface.</p>
+						<p>A message builder class, it implements the {@link MessageOptions} interface.</p>
 					</div>
 				</div>
 			</section>
@@ -101,12 +100,10 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#allowedmentions" class="tsd-kind-icon">allowed<wbr>Mentions</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#code" class="tsd-kind-icon">code</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#content" class="tsd-kind-icon">content</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#embed" class="tsd-kind-icon">embed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#embeds" class="tsd-kind-icon">embeds</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#files" class="tsd-kind-icon">files</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#nonce" class="tsd-kind-icon">nonce</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#split" class="tsd-kind-icon">split</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#tts" class="tsd-kind-icon">tts</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_sapphire_discord_js_utilities.messagebuilder.html#defaults" class="tsd-kind-icon">defaults</a></li>
 							</ul>
@@ -116,13 +113,11 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#addfile" class="tsd-kind-icon">add<wbr>File</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#setallowedmentions" class="tsd-kind-icon">set<wbr>Allowed<wbr>Mentions</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#setcode" class="tsd-kind-icon">set<wbr>Code</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#setcontent" class="tsd-kind-icon">set<wbr>Content</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#setembed" class="tsd-kind-icon">set<wbr>Embed</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#setembeds" class="tsd-kind-icon">set<wbr>Embeds</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#setfile" class="tsd-kind-icon">set<wbr>File</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#setfiles" class="tsd-kind-icon">set<wbr>Files</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#setnonce" class="tsd-kind-icon">set<wbr>Nonce</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#setsplit" class="tsd-kind-icon">set<wbr>Split</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sapphire_discord_js_utilities.messagebuilder.html#settts" class="tsd-kind-icon">setTTS</a></li>
 							</ul>
 						</section>
@@ -141,7 +136,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L56">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L43">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:43</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -160,10 +155,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="allowedmentions" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> allowed<wbr>Mentions</h3>
-					<div class="tsd-signature tsd-kind-icon">allowed<wbr>Mentions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">MessageMentionOptions</span></div>
+					<div class="tsd-signature tsd-kind-icon">allowed<wbr>Mentions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"allowedMentions"</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L39">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L37">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:37</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -173,27 +168,12 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="code" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> code</h3>
-					<div class="tsd-signature tsd-kind-icon">code<span class="tsd-signature-symbol">:</span> <a href="../modules/_sapphire_discord_js_utilities.html#messagebuildercoderesolvable" class="tsd-signature-type">MessageBuilderCodeResolvable</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L50">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:50</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Language for optional codeblock formatting to apply.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="content" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> content</h3>
-					<div class="tsd-signature tsd-kind-icon">content<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<div class="tsd-signature tsd-kind-icon">content<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"content"</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L29">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L26">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -204,27 +184,32 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="embed" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> embed</h3>
-					<div class="tsd-signature tsd-kind-icon">embed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">MessageEmbed</span></div>
+					<a name="embeds" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> embeds</h3>
+					<div class="tsd-signature tsd-kind-icon">embeds<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"embeds"</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L34">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L32">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:32</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>An embed for the message. If set to undefined and the builder is used to edit, the embed will not be replaced.</p>
+							<p>The embeds for the message. If set to undefined and the builder is used to edit, the embed will not be replaced.</p>
 						</div>
+						<dl class="tsd-comment-tags">
+							<dt>remark</dt>
+							<dd><p>There is a maximum of 10 embeds in 1 message</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="files" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> files</h3>
-					<div class="tsd-signature tsd-kind-icon">files<span class="tsd-signature-symbol">:</span> <a href="../modules/_sapphire_discord_js_utilities.html#messagebuilderfileresolvable" class="tsd-signature-type">MessageBuilderFileResolvable</a><span class="tsd-signature-symbol">[]</span></div>
+					<div class="tsd-signature tsd-kind-icon">files<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"files"</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L45">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L43">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:43</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -237,10 +222,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="nonce" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> nonce</h3>
-					<div class="tsd-signature tsd-kind-icon">nonce<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<div class="tsd-signature tsd-kind-icon">nonce<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"nonce"</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L23">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L20">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:20</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -255,28 +240,12 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="split" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> split</h3>
-					<div class="tsd-signature tsd-kind-icon">split<span class="tsd-signature-symbol">:</span> <a href="../modules/_sapphire_discord_js_utilities.html#messagebuildersplitresolvable" class="tsd-signature-type">MessageBuilderSplitResolvable</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L56">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:56</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Whether or not the message should be split into multiple messages if it exceeds the character limit. If an object
-							is provided, these are the options for splitting the message.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="tts" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> tts</h3>
-					<div class="tsd-signature tsd-kind-icon">tts<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<div class="tsd-signature tsd-kind-icon">tts<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"tts"</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L17">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L14">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -296,7 +265,7 @@
 					<div class="tsd-signature tsd-kind-icon">defaults<span class="tsd-signature-symbol">:</span> <a href="../modules/_sapphire_discord_js_utilities.html#messagebuilderresolvable" class="tsd-signature-type">MessageBuilderResolvable</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L167">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:167</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L139">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:139</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -318,7 +287,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L120">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L111">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:111</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -343,13 +312,13 @@
 					<a name="setallowedmentions" class="tsd-anchor"></a>
 					<h3>set<wbr>Allowed<wbr>Mentions</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Allowed<wbr>Mentions<span class="tsd-signature-symbol">(</span>allowedMentions<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">MessageMentionOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Allowed<wbr>Mentions<span class="tsd-signature-symbol">(</span>allowedMentions<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"allowedMentions"</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L111">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L102">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:102</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -360,40 +329,9 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> allowedMentions: <span class="tsd-signature-type">MessageMentionOptions</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> allowedMentions: <span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"allowedMentions"</span><span class="tsd-signature-symbol">]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Which mentions should be parsed from the message content.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="setcode" class="tsd-anchor"></a>
-					<h3>set<wbr>Code</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Code<span class="tsd-signature-symbol">(</span>code<span class="tsd-signature-symbol">?: </span><a href="../modules/_sapphire_discord_js_utilities.html#messagebuildercoderesolvable" class="tsd-signature-type">MessageBuilderCodeResolvable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L149">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:149</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Sets the value for the <a href="_sapphire_discord_js_utilities.messagebuilder.html#code">MessageBuilder.code</a> field.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> code: <a href="../modules/_sapphire_discord_js_utilities.html#messagebuildercoderesolvable" class="tsd-signature-type">MessageBuilderCodeResolvable</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Language for optional codeblock formatting to apply.</p>
 									</div>
 								</li>
 							</ul>
@@ -411,7 +349,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L92">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L77">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:77</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -434,30 +372,35 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="setembed" class="tsd-anchor"></a>
-					<h3>set<wbr>Embed</h3>
+					<a name="setembeds" class="tsd-anchor"></a>
+					<h3>set<wbr>Embeds</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Embed<span class="tsd-signature-symbol">(</span>embed<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">MessageEmbed</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Embeds<span class="tsd-signature-symbol">(</span>embeds<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"embeds"</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L102">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L88">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:88</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the value for the <a href="_sapphire_discord_js_utilities.messagebuilder.html#embed">MessageBuilder.embed</a> field.</p>
+									<p>Sets the value for the {@link MessageBuilder.embed} field.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remark</dt>
+									<dd><p>When providing more than 10 embeds, the array will automatically be sliced down to the first 10.</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> embed: <span class="tsd-signature-type">MessageEmbed</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> embeds: <span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"embeds"</span><span class="tsd-signature-symbol">]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>An embed for the message. If set to undefined and the builder is used to edit, the embed will not be
-										replaced.</p>
+										<p>The embeds for the message. If set to undefined and the builder is used to edit, the embed will not be
+										replaced. There is a maximum of 10 embeds per message</p>
 									</div>
 								</li>
 							</ul>
@@ -475,7 +418,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L130">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:130</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L121">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:121</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -507,7 +450,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L140">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L131">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:131</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -539,7 +482,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L82">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L67">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:67</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -561,38 +504,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="setsplit" class="tsd-anchor"></a>
-					<h3>set<wbr>Split</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Split<span class="tsd-signature-symbol">(</span>split<span class="tsd-signature-symbol">?: </span><a href="../modules/_sapphire_discord_js_utilities.html#messagebuildersplitresolvable" class="tsd-signature-type">MessageBuilderSplitResolvable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L159">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:159</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Sets the value for the <a href="_sapphire_discord_js_utilities.messagebuilder.html#split">MessageBuilder.split</a> field.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> split: <a href="../modules/_sapphire_discord_js_utilities.html#messagebuildersplitresolvable" class="tsd-signature-type">MessageBuilderSplitResolvable</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Whether or not the message should be split into multiple messages if it exceeds the character limit.
-										If an object is provided, these are the options for splitting the message.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="settts" class="tsd-anchor"></a>
 					<h3>setTTS</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -602,7 +513,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/0a148e4/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L73">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts#L58">packages/discord.js-utilities/src/lib/builders/MessageBuilder.ts:58</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -692,22 +603,16 @@
 								<a href="_sapphire_discord_js_utilities.messagebuilder.html#allowedmentions" class="tsd-kind-icon">allowed<wbr>Mentions</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_sapphire_discord_js_utilities.messagebuilder.html#code" class="tsd-kind-icon">code</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_sapphire_discord_js_utilities.messagebuilder.html#content" class="tsd-kind-icon">content</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_sapphire_discord_js_utilities.messagebuilder.html#embed" class="tsd-kind-icon">embed</a>
+								<a href="_sapphire_discord_js_utilities.messagebuilder.html#embeds" class="tsd-kind-icon">embeds</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_sapphire_discord_js_utilities.messagebuilder.html#files" class="tsd-kind-icon">files</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_sapphire_discord_js_utilities.messagebuilder.html#nonce" class="tsd-kind-icon">nonce</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_sapphire_discord_js_utilities.messagebuilder.html#split" class="tsd-kind-icon">split</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_sapphire_discord_js_utilities.messagebuilder.html#tts" class="tsd-kind-icon">tts</a>
@@ -722,13 +627,10 @@
 								<a href="_sapphire_discord_js_utilities.messagebuilder.html#setallowedmentions" class="tsd-kind-icon">set<wbr>Allowed<wbr>Mentions</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_sapphire_discord_js_utilities.messagebuilder.html#setcode" class="tsd-kind-icon">set<wbr>Code</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_sapphire_discord_js_utilities.messagebuilder.html#setcontent" class="tsd-kind-icon">set<wbr>Content</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_sapphire_discord_js_utilities.messagebuilder.html#setembed" class="tsd-kind-icon">set<wbr>Embed</a>
+								<a href="_sapphire_discord_js_utilities.messagebuilder.html#setembeds" class="tsd-kind-icon">set<wbr>Embeds</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_sapphire_discord_js_utilities.messagebuilder.html#setfile" class="tsd-kind-icon">set<wbr>File</a>
@@ -738,9 +640,6 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_sapphire_discord_js_utilities.messagebuilder.html#setnonce" class="tsd-kind-icon">set<wbr>Nonce</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_sapphire_discord_js_utilities.messagebuilder.html#setsplit" class="tsd-kind-icon">set<wbr>Split</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_sapphire_discord_js_utilities.messagebuilder.html#settts" class="tsd-kind-icon">setTTS</a>
