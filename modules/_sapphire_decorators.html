@@ -85,10 +85,13 @@
 					</a>
 					<p><code>@sapphire/decorators</code> depends on the following packages. Be sure to install these along with this package!</p>
 					<ul>
+						<li>  <a href="https://www.npmjs.com/package/@sapphire/discord.js-utilities"><code>@sapphire/discord.js-utilities</code></a></li>
+						<li>  <a href="https://www.npmjs.com/package/@sapphire/utilities"><code>@sapphire/utilities</code></a></li>
 						<li>  <a href="https://www.npmjs.com/package/@sapphire/framework"><code>@sapphire/framework</code></a></li>
+						<li>  <a href="https://www.npmjs.com/package/discord.js"><code>discord.js</code></a></li>
 					</ul>
 					<p>You can use the following command to install this package, or replace <code>npm install</code> with your package manager of choice.</p>
-					<pre><code class="language-sh">npm install @sapphire/decorators @sapphire/framework
+					<pre><code class="language-sh">npm install @sapphire/decorators @sapphire/discord.js-utilities @sapphire/utilities @sapphire/framework discord.js
 </code></pre>
 					<hr>
 					<a href="#api-documentation" id="api-documentation" style="color: inherit; text-decoration: none;">
@@ -169,6 +172,12 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Enumerations</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-enum tsd-parent-kind-module"><a href="../enums/_sapphire_decorators.decoratoridentifiers.html" class="tsd-kind-icon">Decorator<wbr>Identifiers</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_sapphire_decorators.functionfallback.html" class="tsd-kind-icon">Function<wbr>Fallback</a></li>
@@ -176,16 +185,77 @@
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_sapphire_decorators.html#enumerable" class="tsd-kind-icon">enumerable</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_sapphire_decorators.html#enumerablemethod" class="tsd-kind-icon">enumerable<wbr>Method</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="_sapphire_decorators.html#applyoptions" class="tsd-kind-icon">Apply<wbr>Options</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_sapphire_decorators.html#enumerable-1" class="tsd-kind-icon">Enumerable</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_sapphire_decorators.html#enumerablemethod-1" class="tsd-kind-icon">Enumerable<wbr>Method</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_sapphire_decorators.html#requiresdmcontext" class="tsd-kind-icon">RequiresDMContext</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_sapphire_decorators.html#requiresguildcontext" class="tsd-kind-icon">Requires<wbr>Guild<wbr>Context</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_sapphire_decorators.html#requirespermissions" class="tsd-kind-icon">Requires<wbr>Permissions</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="_sapphire_decorators.html#createclassdecorator" class="tsd-kind-icon">create<wbr>Class<wbr>Decorator</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_sapphire_decorators.html#createfunctionprecondition" class="tsd-kind-icon">create<wbr>Function<wbr>Precondition</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_sapphire_decorators.html#createmethoddecorator" class="tsd-kind-icon">create<wbr>Method<wbr>Decorator</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_sapphire_decorators.html#enumerable" class="tsd-kind-icon">enumerable</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_sapphire_decorators.html#enumerablemethod" class="tsd-kind-icon">enumerable<wbr>Method</a></li>
 							</ul>
 						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
+					<a name="enumerable" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> enumerable</h3>
+					<div class="tsd-signature tsd-kind-icon">enumerable<span class="tsd-signature-symbol">:</span> <a href="_sapphire_decorators.html#enumerable-1" class="tsd-signature-type">Enumerable</a><span class="tsd-signature-symbol"> = Enumerable</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/bfd3f04/packages/decorators/src/base-decorators.ts#L30">packages/decorators/src/base-decorators.ts:30</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Decorator that sets the enumerable property of a class field to the desired value.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd><p>Whether the property should be enumerable or not</p>
+							</dd>
+							<dt>deprecated</dt>
+							<dd><p>Use <code>@Enumerable</code> instead.
+								The lowercased decorator will be removed in the next major version of <code>@sapphire/decorators</code></p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
+					<a name="enumerablemethod" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> enumerable<wbr>Method</h3>
+					<div class="tsd-signature tsd-kind-icon">enumerable<wbr>Method<span class="tsd-signature-symbol">:</span> <a href="_sapphire_decorators.html#enumerablemethod-1" class="tsd-signature-type">EnumerableMethod</a><span class="tsd-signature-symbol"> = EnumerableMethod</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/bfd3f04/packages/decorators/src/base-decorators.ts#L48">packages/decorators/src/base-decorators.ts:48</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Decorator that sets the enumerable property of a class method to the desired value.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd><p>Whether the method should be enumerable or not</p>
+							</dd>
+							<dt>deprecated</dt>
+							<dd><p>Use <code>@EnumerableMethod</code> instead.
+								The lowercased decorator will be removed in the next major version of <code>@sapphire/decorators</code></p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 			</section>
@@ -201,7 +271,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/decorators/src/core-decorators.ts#L19">packages/decorators/src/core-decorators.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/bfd3f04/packages/decorators/src/piece-decorators.ts#L29">packages/decorators/src/piece-decorators.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -210,11 +280,23 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-ts">    (at)ApplyOptions&lt;CommandOptions&gt;({
-        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;test&#x27;</span>,
-        <span class="hljs-attr">cooldown</span>: <span class="hljs-number">10</span>
-    })
-    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Command</span> </span>{}
+									<dd><pre><code class="language-typescript"><span class="hljs-keyword">import</span> { ApplyOptions } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sapphire/decorators&#x27;</span>;
+<span class="hljs-keyword">import</span> { Command, CommandOptions } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sapphire/framework&#x27;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">type</span> { Message } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;discord.js&#x27;</span>;
+
+(at)ApplyOptions&lt;CommandOptions&gt;({
+    <span class="hljs-attr">description</span>: <span class="hljs-string">&#x27;ping pong&#x27;</span>,
+    <span class="hljs-attr">enabled</span>: <span class="hljs-literal">true</span>
+})
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserCommand</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Command</span> </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-title">run</span>(<span class="hljs-params">message: Message</span>)</span> {
+        <span class="hljs-keyword">const</span> msg = <span class="hljs-keyword">await</span> message.channel.send(<span class="hljs-string">&#x27;Ping?&#x27;</span>);
+
+        <span class="hljs-keyword">return</span> msg.edit(
+            <span class="hljs-string">`Pong! Bot Latency <span class="hljs-subst">${<span class="hljs-built_in">Math</span>.round(<span class="hljs-built_in">this</span>.context.client.ws.ping)}</span>ms. API Latency <span class="hljs-subst">${msg.createdTimestamp - message.createdTimestamp}</span>ms.`</span>
+        );
+    }
+}
 </code></pre>
 									</dd>
 								</dl>
@@ -235,6 +317,211 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="enumerable-1" class="tsd-anchor"></a>
+					<h3>Enumerable</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">Enumerable<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/bfd3f04/packages/decorators/src/base-decorators.ts#L8">packages/decorators/src/base-decorators.ts:8</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Decorator that sets the enumerable property of a class field to the desired value.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Whether the property should be enumerable or not</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="enumerablemethod-1" class="tsd-anchor"></a>
+					<h3>Enumerable<wbr>Method</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">Enumerable<wbr>Method<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MethodDecorator</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/bfd3f04/packages/decorators/src/base-decorators.ts#L36">packages/decorators/src/base-decorators.ts:36</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Decorator that sets the enumerable property of a class method to the desired value.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Whether the method should be enumerable or not</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MethodDecorator</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="requiresdmcontext" class="tsd-anchor"></a>
+					<h3>RequiresDMContext</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">RequiresDMContext<span class="tsd-signature-symbol">(</span>fallback<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_sapphire_decorators.functionfallback.html" class="tsd-signature-type">FunctionFallback</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MethodDecorator</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/bfd3f04/packages/decorators/src/djs-decorators.ts#L102">packages/decorators/src/djs-decorators.ts:102</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Requires the message to be run in a dm context, this decorator requires the first argument to be a <code>Message</code> instance</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>since</dt>
+									<dd><p>1.0.0</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> fallback: <a href="../interfaces/_sapphire_decorators.functionfallback.html" class="tsd-signature-type">FunctionFallback</a><span class="tsd-signature-symbol"> = (): void &#x3D;&gt; undefined</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The fallback value passed to <code>createFunctionInhibitor</code></p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MethodDecorator</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="requiresguildcontext" class="tsd-anchor"></a>
+					<h3>Requires<wbr>Guild<wbr>Context</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">Requires<wbr>Guild<wbr>Context<span class="tsd-signature-symbol">(</span>fallback<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_sapphire_decorators.functionfallback.html" class="tsd-signature-type">FunctionFallback</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MethodDecorator</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/bfd3f04/packages/decorators/src/djs-decorators.ts#L93">packages/decorators/src/djs-decorators.ts:93</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Requires the message to be run in a guild context, this decorator requires the first argument to be a <code>Message</code> instance</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>since</dt>
+									<dd><p>1.0.0</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> fallback: <a href="../interfaces/_sapphire_decorators.functionfallback.html" class="tsd-signature-type">FunctionFallback</a><span class="tsd-signature-symbol"> = (): void &#x3D;&gt; undefined</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The fallback value passed to <code>createFunctionInhibitor</code></p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MethodDecorator</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="requirespermissions" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> Requires<wbr>Permissions</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">Requires<wbr>Permissions<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>permissionsResolvable<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PermissionResolvable</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MethodDecorator</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/bfd3f04/packages/decorators/src/djs-decorators.ts#L62">packages/decorators/src/djs-decorators.ts:62</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Allows you to set permissions required for individual methods. This is particularly useful for subcommands that require specific permissions.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remark</dt>
+									<dd><p>This decorator makes the decorated function asynchronous, so any result should be <code>await</code>ed.</p>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-typescript"><span class="hljs-keyword">import</span> { ApplyOptions, RequiresPermissions } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sapphire/decorators&#x27;</span>;
+<span class="hljs-keyword">import</span> { SubCommandPluginCommand, SubCommandPluginCommandOptions } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sapphire/plugin-subcommands&#x27;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">type</span> { Message } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;discord.js&#x27;</span>;
+
+(at)ApplyOptions&lt;SubCommandPluginCommandOptions&gt;({
+    <span class="hljs-attr">aliases</span>: [<span class="hljs-string">&#x27;cws&#x27;</span>],
+    <span class="hljs-attr">description</span>: <span class="hljs-string">&#x27;A basic command with some subcommands&#x27;</span>,
+    <span class="hljs-attr">subCommands</span>: [<span class="hljs-string">&#x27;add&#x27;</span>, <span class="hljs-string">&#x27;remove&#x27;</span>, <span class="hljs-string">&#x27;reset&#x27;</span>, { <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;show&#x27;</span>, <span class="hljs-attr">default</span>: <span class="hljs-literal">true</span> }]
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">SubCommandPluginCommand</span> </span>{
+    <span class="hljs-comment">// Anyone should be able to view the result, but not modify</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-title">show</span>(<span class="hljs-params">message: Message</span>)</span> {
+        <span class="hljs-keyword">return</span> message.channel.send(<span class="hljs-string">&#x27;Showing!&#x27;</span>);
+    }
+
+    (at)RequiresPermissions(<span class="hljs-string">&#x27;BAN_MEMBERS&#x27;</span>) <span class="hljs-comment">// This subcommand should only be available to &quot;staff&quot;.</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-title">add</span>(<span class="hljs-params">message: Message</span>)</span> {
+        <span class="hljs-keyword">return</span> message.channel.send(<span class="hljs-string">&#x27;Adding!&#x27;</span>);
+    }
+
+    (at)RequiresPermissions(<span class="hljs-string">&#x27;BAN_MEMBERS&#x27;</span>) <span class="hljs-comment">// This subcommand should only be available to &quot;staff&quot;.</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-title">remove</span>(<span class="hljs-params">message: Message</span>)</span> {
+        <span class="hljs-keyword">return</span> message.channel.send(<span class="hljs-string">&#x27;Removing!&#x27;</span>);
+    }
+
+    (at)RequiresPermissions(<span class="hljs-string">&#x27;BAN_MEMBERS&#x27;</span>) <span class="hljs-comment">// This subcommand should only be available to &quot;staff&quot;.</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-title">reset</span>(<span class="hljs-params">message: Message</span>)</span> {
+        <span class="hljs-keyword">return</span> message.channel.send(<span class="hljs-string">&#x27;Resetting!&#x27;</span>);
+    }
+}
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>permissionsResolvable: <span class="tsd-signature-type">PermissionResolvable</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Permissions that the method should have.</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MethodDecorator</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="createclassdecorator" class="tsd-anchor"></a>
 					<h3>create<wbr>Class<wbr>Decorator</h3>
@@ -245,7 +532,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/decorators/src/utils.ts#L43">packages/decorators/src/utils.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/bfd3f04/packages/decorators/src/utils.ts#L43">packages/decorators/src/utils.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -287,7 +574,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/decorators/src/utils.ts#L73">packages/decorators/src/utils.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/bfd3f04/packages/decorators/src/utils.ts#L73">packages/decorators/src/utils.ts:73</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -347,7 +634,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/decorators/src/utils.ts#L34">packages/decorators/src/utils.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/bfd3f04/packages/decorators/src/utils.ts#L34">packages/decorators/src/utils.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -368,68 +655,6 @@
 									<h5>fn: <span class="tsd-signature-type">MethodDecorator</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The method to decorate</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MethodDecorator</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="enumerable" class="tsd-anchor"></a>
-					<h3>enumerable</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">enumerable<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/decorators/src/core-decorators.ts#L35">packages/decorators/src/core-decorators.ts:35</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Decorator that sets the enumerable property of a class field to the desired value.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>value: <span class="tsd-signature-type">boolean</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Whether the property should be enumerable or not</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="enumerablemethod" class="tsd-anchor"></a>
-					<h3>enumerable<wbr>Method</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">enumerable<wbr>Method<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MethodDecorator</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/5370ddd/packages/decorators/src/core-decorators.ts#L57">packages/decorators/src/core-decorators.ts:57</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Decorator that sets the enumerable property of a class method to the desired value.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>value: <span class="tsd-signature-type">boolean</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Whether the metthod should be enumerable or not</p>
 									</div>
 								</li>
 							</ul>
@@ -494,14 +719,38 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/_sapphire_decorators.decoratoridentifiers.html" class="tsd-kind-icon">Decorator<wbr>Identifiers</a>
+					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/_sapphire_decorators.functionfallback.html" class="tsd-kind-icon">Function<wbr>Fallback</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/_sapphire_decorators.functionprecondition.html" class="tsd-kind-icon">Function<wbr>Precondition</a>
 					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
+						<a href="_sapphire_decorators.html#enumerable" class="tsd-kind-icon">enumerable</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
+						<a href="_sapphire_decorators.html#enumerablemethod" class="tsd-kind-icon">enumerable<wbr>Method</a>
+					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_sapphire_decorators.html#applyoptions" class="tsd-kind-icon">Apply<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_sapphire_decorators.html#enumerable-1" class="tsd-kind-icon">Enumerable</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_sapphire_decorators.html#enumerablemethod-1" class="tsd-kind-icon">Enumerable<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_sapphire_decorators.html#requiresdmcontext" class="tsd-kind-icon">RequiresDMContext</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_sapphire_decorators.html#requiresguildcontext" class="tsd-kind-icon">Requires<wbr>Guild<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_sapphire_decorators.html#requirespermissions" class="tsd-kind-icon">Requires<wbr>Permissions</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_sapphire_decorators.html#createclassdecorator" class="tsd-kind-icon">create<wbr>Class<wbr>Decorator</a>
@@ -511,12 +760,6 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_sapphire_decorators.html#createmethoddecorator" class="tsd-kind-icon">create<wbr>Method<wbr>Decorator</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_sapphire_decorators.html#enumerable" class="tsd-kind-icon">enumerable</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_sapphire_decorators.html#enumerablemethod" class="tsd-kind-icon">enumerable<wbr>Method</a>
 					</li>
 				</ul>
 			</nav>
