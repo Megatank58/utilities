@@ -87,12 +87,16 @@
 					{@link MessagePrompter.defaultPrompts} is also static so you can modify these directly.</p>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><pre><code class="language-typescript"><span class="hljs-keyword">const</span> handler = <span class="hljs-keyword">new</span> MessagePrompter(<span class="hljs-string">&#x27;Are you sure you want to continue?&#x27;</span>);
+						<dd><pre><code class="language-typescript"><span class="hljs-keyword">const</span> { MessagePrompter } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@sapphire/discord.js-utilities&#x27;</span>);
+
+<span class="hljs-keyword">const</span> handler = <span class="hljs-keyword">new</span> MessagePrompter(<span class="hljs-string">&#x27;Are you sure you want to continue?&#x27;</span>);
 <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> handler.run(channel, author);
 </code></pre>
 						</dd>
 						<dt>example</dt>
-						<dd><pre><code class="language-typescript"><span class="hljs-keyword">const</span> handler = <span class="hljs-keyword">new</span> MessagePrompter(<span class="hljs-string">&#x27;Choose a number between 5 and 10?&#x27;</span>, <span class="hljs-string">&#x27;number&#x27;</span>, {
+						<dd><pre><code class="language-typescript"><span class="hljs-keyword">const</span> { MessagePrompter, MessagePrompterStrategies } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@sapphire/discord.js-utilities&#x27;</span>);
+
+<span class="hljs-keyword">const</span> handler = <span class="hljs-keyword">new</span> MessagePrompter(<span class="hljs-string">&#x27;Choose a number between 5 and 10?&#x27;</span>, MessagePrompterStrategies.Number, {
         <span class="hljs-attr">start</span>: <span class="hljs-number">5</span>,
         <span class="hljs-attr">end</span>: <span class="hljs-number">10</span>
 });
@@ -100,14 +104,18 @@
 </code></pre>
 						</dd>
 						<dt>example</dt>
-						<dd><pre><code class="language-typescript"><span class="hljs-keyword">const</span> handler = <span class="hljs-keyword">new</span> MessagePrompter(<span class="hljs-string">&#x27;Are you happy or sad?&#x27;</span>, <span class="hljs-string">&#x27;reaction&#x27;</span>, {
+						<dd><pre><code class="language-typescript"><span class="hljs-keyword">const</span> { MessagePrompter, MessagePrompterStrategies } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@sapphire/discord.js-utilities&#x27;</span>);
+
+<span class="hljs-keyword">const</span> handler = <span class="hljs-keyword">new</span> MessagePrompter(<span class="hljs-string">&#x27;Are you happy or sad?&#x27;</span>, MessagePrompterStrategies.Reaction, {
         <span class="hljs-attr">reactions</span>: [<span class="hljs-string">&#x27;🙂&#x27;</span>, <span class="hljs-string">&#x27;🙁&#x27;</span>]
 });
 <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> handler.run(channel, author);
 </code></pre>
 						</dd>
 						<dt>example</dt>
-						<dd><pre><code class="language-typescript"><span class="hljs-keyword">const</span> handler = <span class="hljs-keyword">new</span> MessagePrompter(<span class="hljs-string">&#x27;Do you love me?&#x27;</span>, <span class="hljs-string">&#x27;message&#x27;</span>);
+						<dd><pre><code class="language-typescript"><span class="hljs-keyword">const</span> { MessagePrompter, MessagePrompterStrategies } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@sapphire/discord.js-utilities&#x27;</span>);
+
+<span class="hljs-keyword">const</span> handler = <span class="hljs-keyword">new</span> MessagePrompter(<span class="hljs-string">&#x27;Do you love me?&#x27;</span>, MessagePrompterStrategies.Message);
 <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> handler.run(channel, author);
 </code></pre>
 						</dd>
@@ -169,7 +177,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/600390f/packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts#L93">packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/660f4be/packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts#L101">packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts:101</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -217,7 +225,7 @@
 					<div class="tsd-signature tsd-kind-icon">strategy<span class="tsd-signature-symbol">:</span> <a href="_sapphire_discord_js_utilities.messageprompterbasestrategy.html" class="tsd-signature-type">MessagePrompterBaseStrategy</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/600390f/packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts#L93">packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts:93</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/660f4be/packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts#L101">packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts:101</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -232,7 +240,7 @@
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Strategy<span class="tsd-signature-symbol">:</span> <a href="../enums/_sapphire_discord_js_utilities.messageprompterstrategies.html" class="tsd-signature-type">MessagePrompterStrategies</a><span class="tsd-signature-symbol"> = MessagePrompterStrategies.Confirm</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/600390f/packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts#L160">packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts:160</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/660f4be/packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts#L168">packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts:168</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -247,7 +255,7 @@
 					<div class="tsd-signature tsd-kind-icon">strategies<span class="tsd-signature-symbol">:</span> <a href="_sapphire_ratelimits.ratelimitmanager.html#map" class="tsd-signature-type">Map</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_sapphire_discord_js_utilities.messageprompterstrategies.html" class="tsd-signature-type">MessagePrompterStrategies</a><span class="tsd-signature-symbol">, </span><a href="../modules/_sapphire_utilities.html#ctor" class="tsd-signature-type">Ctor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ConstructorParameters</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">typeof </span><span class="tsd-signature-type">MessagePrompterConfirmStrategy</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ConstructorParameters</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">typeof </span><span class="tsd-signature-type">MessagePrompterNumberStrategy</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ConstructorParameters</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">typeof </span><span class="tsd-signature-type">MessagePrompterReactionStrategy</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ConstructorParameters</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">typeof </span><span class="tsd-signature-type">MessagePrompterMessageStrategy</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="_sapphire_discord_js_utilities.messageprompterconfirmstrategy.html" class="tsd-signature-type">MessagePrompterConfirmStrategy</a><span class="tsd-signature-symbol"> | </span><a href="_sapphire_discord_js_utilities.messageprompternumberstrategy.html" class="tsd-signature-type">MessagePrompterNumberStrategy</a><span class="tsd-signature-symbol"> | </span><a href="_sapphire_discord_js_utilities.messageprompterreactionstrategy.html" class="tsd-signature-type">MessagePrompterReactionStrategy</a><span class="tsd-signature-symbol"> | </span><a href="_sapphire_discord_js_utilities.messagepromptermessagestrategy.html" class="tsd-signature-type">MessagePrompterMessageStrategy</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = new Map([[MessagePrompterStrategies.Confirm, MessagePrompterConfirmStrategy],[MessagePrompterStrategies.Number, MessagePrompterNumberStrategy],[MessagePrompterStrategies.Reaction, MessagePrompterReactionStrategy],[MessagePrompterStrategies.Message, MessagePrompterMessageStrategy]])</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/600390f/packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts#L140">packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts:140</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/660f4be/packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts#L148">packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts:148</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -269,7 +277,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/600390f/packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts#L128">packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/660f4be/packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts#L136">packages/discord.js-utilities/src/lib/MessagePrompter/MessagePrompter.ts:136</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
