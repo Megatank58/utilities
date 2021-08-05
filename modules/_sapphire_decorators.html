@@ -197,9 +197,10 @@
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="_sapphire_decorators.html#applyoptions" class="tsd-kind-icon">Apply<wbr>Options</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_sapphire_decorators.html#enumerable-1" class="tsd-kind-icon">Enumerable</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_sapphire_decorators.html#enumerablemethod-1" class="tsd-kind-icon">Enumerable<wbr>Method</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_sapphire_decorators.html#requiresclientpermissions" class="tsd-kind-icon">Requires<wbr>Client<wbr>Permissions</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_sapphire_decorators.html#requiresdmcontext" class="tsd-kind-icon">RequiresDMContext</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_sapphire_decorators.html#requiresguildcontext" class="tsd-kind-icon">Requires<wbr>Guild<wbr>Context</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_sapphire_decorators.html#requirespermissions" class="tsd-kind-icon">Requires<wbr>Permissions</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_sapphire_decorators.html#requiresuserpermissions" class="tsd-kind-icon">Requires<wbr>User<wbr>Permissions</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="_sapphire_decorators.html#createclassdecorator" class="tsd-kind-icon">create<wbr>Class<wbr>Decorator</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_sapphire_decorators.html#createfunctionprecondition" class="tsd-kind-icon">create<wbr>Function<wbr>Precondition</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_sapphire_decorators.html#createmethoddecorator" class="tsd-kind-icon">create<wbr>Method<wbr>Decorator</a></li>
@@ -216,7 +217,7 @@
 					<div class="tsd-signature tsd-kind-icon">enumerable<span class="tsd-signature-symbol">:</span> <a href="_sapphire_decorators.html#enumerable-1" class="tsd-signature-type">Enumerable</a><span class="tsd-signature-symbol"> = Enumerable</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ba5c590/packages/decorators/src/base-decorators.ts#L30">packages/decorators/src/base-decorators.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/688e39f/packages/decorators/src/base-decorators.ts#L30">packages/decorators/src/base-decorators.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -240,7 +241,7 @@
 					<div class="tsd-signature tsd-kind-icon">enumerable<wbr>Method<span class="tsd-signature-symbol">:</span> <a href="_sapphire_decorators.html#enumerablemethod-1" class="tsd-signature-type">EnumerableMethod</a><span class="tsd-signature-symbol"> = EnumerableMethod</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ba5c590/packages/decorators/src/base-decorators.ts#L48">packages/decorators/src/base-decorators.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/688e39f/packages/decorators/src/base-decorators.ts#L48">packages/decorators/src/base-decorators.ts:48</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -271,7 +272,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ba5c590/packages/decorators/src/piece-decorators.ts#L29">packages/decorators/src/piece-decorators.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/688e39f/packages/decorators/src/piece-decorators.ts#L29">packages/decorators/src/piece-decorators.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -293,7 +294,7 @@
         <span class="hljs-keyword">const</span> msg = <span class="hljs-keyword">await</span> message.channel.send(<span class="hljs-string">&#x27;Ping?&#x27;</span>);
 
         <span class="hljs-keyword">return</span> msg.edit(
-            <span class="hljs-string">`Pong! Bot Latency <span class="hljs-subst">${<span class="hljs-built_in">Math</span>.round(<span class="hljs-built_in">this</span>.context.client.ws.ping)}</span>ms. API Latency <span class="hljs-subst">${msg.createdTimestamp - message.createdTimestamp}</span>ms.`</span>
+            <span class="hljs-string">`Pong! Client Latency <span class="hljs-subst">${<span class="hljs-built_in">Math</span>.round(<span class="hljs-built_in">this</span>.context.client.ws.ping)}</span>ms. API Latency <span class="hljs-subst">${msg.createdTimestamp - message.createdTimestamp}</span>ms.`</span>
         );
     }
 }
@@ -327,7 +328,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ba5c590/packages/decorators/src/base-decorators.ts#L8">packages/decorators/src/base-decorators.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/688e39f/packages/decorators/src/base-decorators.ts#L8">packages/decorators/src/base-decorators.ts:8</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -358,7 +359,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ba5c590/packages/decorators/src/base-decorators.ts#L36">packages/decorators/src/base-decorators.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/688e39f/packages/decorators/src/base-decorators.ts#L36">packages/decorators/src/base-decorators.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -380,6 +381,80 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="requiresclientpermissions" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> Requires<wbr>Client<wbr>Permissions</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">Requires<wbr>Client<wbr>Permissions<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>permissionsResolvable<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PermissionResolvable</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MethodDecorator</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/688e39f/packages/decorators/src/djs-decorators.ts#L79">packages/decorators/src/djs-decorators.ts:79</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Allows you to set permissions required for individual methods. This is particularly useful for subcommands that require specific permissions.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remark</dt>
+									<dd><p>This decorator applies to the client that is to execute the command. For setting permissions required user of the command see <a href="_sapphire_decorators.html#requiresuserpermissions">RequiresUserPermissions</a></p>
+									</dd>
+									<dt>remark</dt>
+									<dd><p>This decorator makes the decorated function asynchronous, so any result should be <code>await</code>ed.</p>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-typescript"><span class="hljs-keyword">import</span> { ApplyOptions, RequiresClientPermissions } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sapphire/decorators&#x27;</span>;
+<span class="hljs-keyword">import</span> { SubCommandPluginCommand, SubCommandPluginCommandOptions } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sapphire/plugin-subcommands&#x27;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">type</span> { Message } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;discord.js&#x27;</span>;
+
+(at)ApplyOptions&lt;SubCommandPluginCommandOptions&gt;({
+    <span class="hljs-attr">aliases</span>: [<span class="hljs-string">&#x27;cws&#x27;</span>],
+    <span class="hljs-attr">description</span>: <span class="hljs-string">&#x27;A basic command with some subcommands&#x27;</span>,
+    <span class="hljs-attr">subCommands</span>: [<span class="hljs-string">&#x27;add&#x27;</span>, <span class="hljs-string">&#x27;remove&#x27;</span>, <span class="hljs-string">&#x27;reset&#x27;</span>, { <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;show&#x27;</span>, <span class="hljs-attr">default</span>: <span class="hljs-literal">true</span> }]
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">SubCommandPluginCommand</span> </span>{
+    <span class="hljs-comment">// Anyone should be able to view the result, but not modify</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-title">show</span>(<span class="hljs-params">message: Message</span>)</span> {
+        <span class="hljs-keyword">return</span> message.channel.send(<span class="hljs-string">&#x27;Showing!&#x27;</span>);
+    }
+
+    (at)RequiresClientPermissions(<span class="hljs-string">&#x27;BAN_MEMBERS&#x27;</span>) <span class="hljs-comment">// This subcommand requires the client to be able to ban members.</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-title">add</span>(<span class="hljs-params">message: Message</span>)</span> {
+        <span class="hljs-keyword">return</span> message.channel.send(<span class="hljs-string">&#x27;Adding!&#x27;</span>);
+    }
+
+    (at)RequiresClientPermissions(<span class="hljs-string">&#x27;BAN_MEMBERS&#x27;</span>) <span class="hljs-comment">// This subcommand requires the client to be able to ban members.</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-title">remove</span>(<span class="hljs-params">message: Message</span>)</span> {
+        <span class="hljs-keyword">return</span> message.channel.send(<span class="hljs-string">&#x27;Removing!&#x27;</span>);
+    }
+
+    (at)RequiresClientPermissions(<span class="hljs-string">&#x27;BAN_MEMBERS&#x27;</span>) <span class="hljs-comment">// This subcommand requires the client to be able to ban members.</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-title">reset</span>(<span class="hljs-params">message: Message</span>)</span> {
+        <span class="hljs-keyword">return</span> message.channel.send(<span class="hljs-string">&#x27;Resetting!&#x27;</span>);
+    }
+}
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>permissionsResolvable: <span class="tsd-signature-type">PermissionResolvable</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Permissions that the method should have.</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MethodDecorator</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="requiresdmcontext" class="tsd-anchor"></a>
 					<h3>RequiresDMContext</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
@@ -389,7 +464,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ba5c590/packages/decorators/src/djs-decorators.ts#L102">packages/decorators/src/djs-decorators.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/688e39f/packages/decorators/src/djs-decorators.ts#L192">packages/decorators/src/djs-decorators.ts:192</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -425,7 +500,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ba5c590/packages/decorators/src/djs-decorators.ts#L93">packages/decorators/src/djs-decorators.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/688e39f/packages/decorators/src/djs-decorators.ts#L183">packages/decorators/src/djs-decorators.ts:183</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -452,16 +527,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="requirespermissions" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> Requires<wbr>Permissions</h3>
+					<a name="requiresuserpermissions" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> Requires<wbr>User<wbr>Permissions</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">Requires<wbr>Permissions<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>permissionsResolvable<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PermissionResolvable</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MethodDecorator</span></li>
+						<li class="tsd-signature tsd-kind-icon">Requires<wbr>User<wbr>Permissions<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>permissionsResolvable<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PermissionResolvable</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MethodDecorator</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ba5c590/packages/decorators/src/djs-decorators.ts#L62">packages/decorators/src/djs-decorators.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/688e39f/packages/decorators/src/djs-decorators.ts#L148">packages/decorators/src/djs-decorators.ts:148</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -470,10 +545,13 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>remark</dt>
+									<dd><p>This decorator applies to the user of the command. For setting permissions required for the client see <a href="_sapphire_decorators.html#requiresclientpermissions">RequiresClientPermissions</a></p>
+									</dd>
+									<dt>remark</dt>
 									<dd><p>This decorator makes the decorated function asynchronous, so any result should be <code>await</code>ed.</p>
 									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-typescript"><span class="hljs-keyword">import</span> { ApplyOptions, RequiresPermissions } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sapphire/decorators&#x27;</span>;
+									<dd><pre><code class="language-typescript"><span class="hljs-keyword">import</span> { ApplyOptions, RequiresUserPermissions } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sapphire/decorators&#x27;</span>;
 <span class="hljs-keyword">import</span> { SubCommandPluginCommand, SubCommandPluginCommandOptions } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sapphire/plugin-subcommands&#x27;</span>;
 <span class="hljs-keyword">import</span> <span class="hljs-keyword">type</span> { Message } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;discord.js&#x27;</span>;
 
@@ -488,17 +566,17 @@
         <span class="hljs-keyword">return</span> message.channel.send(<span class="hljs-string">&#x27;Showing!&#x27;</span>);
     }
 
-    (at)RequiresPermissions(<span class="hljs-string">&#x27;BAN_MEMBERS&#x27;</span>) <span class="hljs-comment">// This subcommand should only be available to &quot;staff&quot;.</span>
+    (at)RequiresUserPermissions(<span class="hljs-string">&#x27;BAN_MEMBERS&#x27;</span>) <span class="hljs-comment">// This subcommand requires the user of the command to be able to ban members.</span>
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-title">add</span>(<span class="hljs-params">message: Message</span>)</span> {
         <span class="hljs-keyword">return</span> message.channel.send(<span class="hljs-string">&#x27;Adding!&#x27;</span>);
     }
 
-    (at)RequiresPermissions(<span class="hljs-string">&#x27;BAN_MEMBERS&#x27;</span>) <span class="hljs-comment">// This subcommand should only be available to &quot;staff&quot;.</span>
+    (at)RequiresUserPermissions(<span class="hljs-string">&#x27;BAN_MEMBERS&#x27;</span>) <span class="hljs-comment">// This subcommand requires the user of the command to be able to ban members.</span>
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-title">remove</span>(<span class="hljs-params">message: Message</span>)</span> {
         <span class="hljs-keyword">return</span> message.channel.send(<span class="hljs-string">&#x27;Removing!&#x27;</span>);
     }
 
-    (at)RequiresPermissions(<span class="hljs-string">&#x27;BAN_MEMBERS&#x27;</span>) <span class="hljs-comment">// This subcommand should only be available to &quot;staff&quot;.</span>
+    (at)RequiresUserPermissions(<span class="hljs-string">&#x27;BAN_MEMBERS&#x27;</span>) <span class="hljs-comment">// This subcommand requires the user of the command to be able to ban members.</span>
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-title">reset</span>(<span class="hljs-params">message: Message</span>)</span> {
         <span class="hljs-keyword">return</span> message.channel.send(<span class="hljs-string">&#x27;Resetting!&#x27;</span>);
     }
@@ -532,7 +610,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ba5c590/packages/decorators/src/utils.ts#L43">packages/decorators/src/utils.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/688e39f/packages/decorators/src/utils.ts#L43">packages/decorators/src/utils.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -574,7 +652,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ba5c590/packages/decorators/src/utils.ts#L73">packages/decorators/src/utils.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/688e39f/packages/decorators/src/utils.ts#L73">packages/decorators/src/utils.ts:73</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -634,7 +712,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/ba5c590/packages/decorators/src/utils.ts#L34">packages/decorators/src/utils.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/688e39f/packages/decorators/src/utils.ts#L34">packages/decorators/src/utils.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -744,13 +822,16 @@
 						<a href="_sapphire_decorators.html#enumerablemethod-1" class="tsd-kind-icon">Enumerable<wbr>Method</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_sapphire_decorators.html#requiresclientpermissions" class="tsd-kind-icon">Requires<wbr>Client<wbr>Permissions</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_sapphire_decorators.html#requiresdmcontext" class="tsd-kind-icon">RequiresDMContext</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_sapphire_decorators.html#requiresguildcontext" class="tsd-kind-icon">Requires<wbr>Guild<wbr>Context</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_sapphire_decorators.html#requirespermissions" class="tsd-kind-icon">Requires<wbr>Permissions</a>
+						<a href="_sapphire_decorators.html#requiresuserpermissions" class="tsd-kind-icon">Requires<wbr>User<wbr>Permissions</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_sapphire_decorators.html#createclassdecorator" class="tsd-kind-icon">create<wbr>Class<wbr>Decorator</a>
