@@ -1,7 +1,7 @@
 {
 	"name": "@sapphire/string-store",
 	"version": "0.0.1",
-	"description": "Conveniently store a lot of data into a very small payload.",
+	"description": "Conveniently store a lot of data in a tiny payload.",
 	"author": "@sapphire",
 	"license": "MIT",
 	"main": "dist/index.js",
