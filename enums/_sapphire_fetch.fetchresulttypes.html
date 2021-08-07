@@ -79,6 +79,7 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_sapphire_fetch.fetchresulttypes.html#blob" class="tsd-kind-icon">Blob</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_sapphire_fetch.fetchresulttypes.html#buffer" class="tsd-kind-icon">Buffer</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_sapphire_fetch.fetchresulttypes.html#json" class="tsd-kind-icon">JSON</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_sapphire_fetch.fetchresulttypes.html#result" class="tsd-kind-icon">Result</a></li>
@@ -91,18 +92,44 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="blob" class="tsd-anchor"></a>
+					<h3>Blob</h3>
+					<div class="tsd-signature tsd-kind-icon">Blob<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;blob&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/a8baab9/packages/fetch/src/lib/types.ts#L22">packages/fetch/src/lib/types.ts:22</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Returns only the body, as a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob"><code>Blob</code></a>.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>remark</dt>
+							<dd><p>For NodeJS environment other <code>FetchResultTypes</code> are recommended, but you can use a Blob if you want to.</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="buffer" class="tsd-anchor"></a>
 					<h3>Buffer</h3>
 					<div class="tsd-signature tsd-kind-icon">Buffer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;buffer&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/2abc6c1/packages/fetch/src/lib/types.ts#L15">packages/fetch/src/lib/types.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/a8baab9/packages/fetch/src/lib/types.ts#L17">packages/fetch/src/lib/types.ts:17</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Returns only the body, as a <a href="https://nodejs.org/api/buffer.html">Buffer</a>. Similar to <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/blob"><code>Body.blob()</code></a>.</p>
+							<p>Returns only the body, as a <a href="https://nodejs.org/api/buffer.html">Buffer</a>.</p>
 						</div>
+						<dl class="tsd-comment-tags">
+							<dt>remark</dt>
+							<dd><p>Does not work in a Browser environment. For browsers use <a href="_sapphire_fetch.fetchresulttypes.html#blob">FetchResultTypes.Blob</a> instead.
+								If you use this type in a Browsers environment a {@link ReferenceError <code>ReferenceError: Buffer is not defined</code>} will be thrown!</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
@@ -111,7 +138,7 @@
 					<div class="tsd-signature tsd-kind-icon">JSON<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;json&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/2abc6c1/packages/fetch/src/lib/types.ts#L11">packages/fetch/src/lib/types.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/a8baab9/packages/fetch/src/lib/types.ts#L11">packages/fetch/src/lib/types.ts:11</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -128,7 +155,7 @@
 					<div class="tsd-signature tsd-kind-icon">Result<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;result&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/2abc6c1/packages/fetch/src/lib/types.ts#L23">packages/fetch/src/lib/types.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/a8baab9/packages/fetch/src/lib/types.ts#L30">packages/fetch/src/lib/types.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -143,7 +170,7 @@
 					<div class="tsd-signature tsd-kind-icon">Text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;text&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/2abc6c1/packages/fetch/src/lib/types.ts#L19">packages/fetch/src/lib/types.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/a8baab9/packages/fetch/src/lib/types.ts#L26">packages/fetch/src/lib/types.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -217,6 +244,9 @@
 					<li class="current tsd-kind-enum tsd-parent-kind-module">
 						<a href="_sapphire_fetch.fetchresulttypes.html" class="tsd-kind-icon">Fetch<wbr>Result<wbr>Types</a>
 						<ul>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="_sapphire_fetch.fetchresulttypes.html#blob" class="tsd-kind-icon">Blob</a>
+							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
 								<a href="_sapphire_fetch.fetchresulttypes.html#buffer" class="tsd-kind-icon">Buffer</a>
 							</li>

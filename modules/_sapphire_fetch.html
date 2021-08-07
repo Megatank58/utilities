@@ -81,14 +81,11 @@
 						<li><a href="#sapphirefetch">@sapphire/fetch</a><ul>
 								<li>  <a href="#description">Description</a></li>
 								<li>  <a href="#features">Features</a></li>
-								<li><a href="#installation">Installation</a><ul>
-										<li>  <a href="#node-fetch-types">Node-fetch types</a></li>
-									</ul>
-								</li>
+								<li>  <a href="#installation">Installation</a></li>
 								<li><a href="#usage">Usage</a><ul>
-										<li>  <a href="#get-ing-json-data"><code>GET</code>-ing JSON data</a></li>
-										<li>  <a href="#get-ing-buffer-data-images-etc"><code>GET</code>-ing Buffer data (images, etc.)</a></li>
-										<li>  <a href="#post-ing-json-data"><code>POST</code>-ing JSON data</a></li>
+										<li>  <a href="#getting-json-data"><code>GET</code>ting JSON data</a></li>
+										<li>  <a href="#getting-buffer-data-images-etc"><code>GET</code>ting Buffer data (images, etc.)</a></li>
+										<li>  <a href="#posting-json-data"><code>POST</code>ing JSON data</a></li>
 									</ul>
 								</li>
 								<li>  <a href="#api-documentation">API Documentation</a></li>
@@ -100,7 +97,7 @@
 					<a href="#description" id="description" style="color: inherit; text-decoration: none;">
 						<h2>Description</h2>
 					</a>
-					<p><a href="https://github.com/node-fetch/node-fetch">node-fetch</a> is already a great library for making API calls, but because it focuses solely on bringing the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a> to Node.js, it doesn&#39;t provide specific error messages and handling for different return types (JSON, Buffer, plain text, etc). This is where <code>@sapphire/fetch</code> comes in. The syntax is more restrictive than that of <a href="https://github.com/node-fetch/node-fetch">node-fetch</a>, but that makes it consistent and easier to use in TypeScript.</p>
+					<p><a href="https://github.com/lquixada/cross-fetch">cross-fetch</a> is already a great library for making API calls, but because it focuses solely on bringing the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a> to Node.js, it doesn&#39;t provide specific error messages and handling for different return types (JSON, Buffer, plain text, etc). This is where <code>@sapphire/fetch</code> comes in. The syntax is more restrictive than that of <a href="https://github.com/lquixada/cross-fetch">cross-fetch</a>, but that makes it consistent and easier to use in TypeScript.</p>
 					<a href="#features" id="features" style="color: inherit; text-decoration: none;">
 						<h2>Features</h2>
 					</a>
@@ -110,6 +107,7 @@
 						<li>  Exported <code>const enum</code> for the common return data types.</li>
 						<li>  Throws distinctive errors when the API returns a &quot;not ok&quot; status code to make them easier to understand.</li>
 						<li>  Enforces casting the return type when requesting JSON data, to ensure your return data is strictly typed.</li>
+						<li>  Uses <a href="https://github.com/lquixada/cross-fetch">cross-fetch</a> so this package can be used in NodeJS (where it uses <a href="https://github.com/node-fetch/node-fetch">node-fetch</a>) and browser (where it uses <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a>)</li>
 					</ul>
 					<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
 						<h2>Installation</h2>
@@ -117,13 +115,6 @@
 					<p>You can use the following command to install this package, or replace <code>npm install</code> with your package manager of choice.</p>
 					<pre><code class="language-sh">npm install @sapphire/fetch
 </code></pre>
-					<a href="#node-fetch-types" id="node-fetch-types" style="color: inherit; text-decoration: none;">
-						<h3>Node-fetch types</h3>
-					</a>
-					<p>TypeScript users should also add <code>@types/node-fetch</code>:</p>
-					<pre><code class="language-sh">npm install --save-dev @types/node-fetch
-</code></pre>
-					<p>Alternatively, you can enable the <a href="https://www.typescriptlang.org/tsconfig/#skipLibCheck"><code>skipLibChecks</code></a> TypeScript compiler option</p>
 					<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 						<h2>Usage</h2>
 					</a>
@@ -295,17 +286,19 @@
 						<li class="tsd-signature tsd-kind-icon">fetch&lt;R&gt;<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">URL</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RequestInit</span>, type<span class="tsd-signature-symbol">?: </span><a href="../enums/_sapphire_fetch.fetchresulttypes.html#json" class="tsd-signature-type">JSON</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></li>
 						<li class="tsd-signature tsd-kind-icon">fetch<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">URL</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, type<span class="tsd-signature-symbol">: </span><a href="../enums/_sapphire_fetch.fetchresulttypes.html#buffer" class="tsd-signature-type">Buffer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">&gt;</span></li>
 						<li class="tsd-signature tsd-kind-icon">fetch<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">URL</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RequestInit</span>, type<span class="tsd-signature-symbol">: </span><a href="../enums/_sapphire_fetch.fetchresulttypes.html#buffer" class="tsd-signature-type">Buffer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">fetch<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">URL</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, type<span class="tsd-signature-symbol">: </span><a href="../enums/_sapphire_fetch.fetchresulttypes.html#blob" class="tsd-signature-type">Blob</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Blob</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">fetch<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">URL</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RequestInit</span>, type<span class="tsd-signature-symbol">: </span><a href="../enums/_sapphire_fetch.fetchresulttypes.html#blob" class="tsd-signature-type">Blob</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Blob</span><span class="tsd-signature-symbol">&gt;</span></li>
 						<li class="tsd-signature tsd-kind-icon">fetch<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">URL</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, type<span class="tsd-signature-symbol">: </span><a href="../enums/_sapphire_fetch.fetchresulttypes.html#text" class="tsd-signature-type">Text</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 						<li class="tsd-signature tsd-kind-icon">fetch<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">URL</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RequestInit</span>, type<span class="tsd-signature-symbol">: </span><a href="../enums/_sapphire_fetch.fetchresulttypes.html#text" class="tsd-signature-type">Text</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 						<li class="tsd-signature tsd-kind-icon">fetch<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">URL</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, type<span class="tsd-signature-symbol">: </span><a href="../enums/_sapphire_fetch.fetchresulttypes.html#result" class="tsd-signature-type">Result</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol">&gt;</span></li>
 						<li class="tsd-signature tsd-kind-icon">fetch<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">URL</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RequestInit</span>, type<span class="tsd-signature-symbol">: </span><a href="../enums/_sapphire_fetch.fetchresulttypes.html#result" class="tsd-signature-type">Result</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol">&gt;</span></li>
-						<li class="tsd-signature tsd-kind-icon">fetch&lt;R&gt;<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">URL</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RequestInit</span>, type<span class="tsd-signature-symbol">: </span><a href="../enums/_sapphire_fetch.fetchresulttypes.html" class="tsd-signature-type">FetchResultTypes</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">fetch&lt;R&gt;<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">URL</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RequestInit</span>, type<span class="tsd-signature-symbol">: </span><a href="../enums/_sapphire_fetch.fetchresulttypes.html" class="tsd-signature-type">FetchResultTypes</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Blob</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/2abc6c1/packages/fetch/src/lib/fetch.ts#L18">packages/fetch/src/lib/fetch.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/a8baab9/packages/fetch/src/lib/fetch.ts#L21">packages/fetch/src/lib/fetch.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -331,7 +324,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> type: <a href="../enums/_sapphire_fetch.fetchresulttypes.html#json" class="tsd-signature-type">JSON</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Only needs to be provided if the second parameter are <a href="https://github.com/node-fetch/node-fetch#options">node-fetch options</a>. One of the <a href="../enums/_sapphire_fetch.fetchresulttypes.html">FetchResultTypes</a> that will determine how the result is returned.</p>
+										<p>Only needs to be provided if the second parameter are <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request">Request options</a> ({@link RequestInit} for TypeScript). One of the <a href="../enums/_sapphire_fetch.fetchresulttypes.html">FetchResultTypes</a> that will determine how the result is returned.</p>
 									</div>
 								</li>
 							</ul>
@@ -339,15 +332,16 @@
 							<p>The return type is determined by the provided <code>type</code>.</p>
 							<ul>
 								<li>When using <code>FetchResultTypes.JSON</code> then the return type is <code>unknown</code> by default. The type should be specified by filling in the generic type of the function, or casting the result.</li>
-								<li>When using <code>FetchResultTypes.Buffer</code> the return type is always <a href="https://nodejs.org/api/buffer.html"><code>Buffer</code></a></li>
-								<li>When using <code>FetchResultTypes.Text</code> the return type is always <code>string</code></li>
-								<li>When using <code>FetchResultTypes.Result</code> the return type is always <a href="https://github.com/node-fetch/node-fetch#class-response"><code>Response</code></a></li>
+								<li>When using <code>FetchResultTypes.Buffer</code> the return type will be <a href="https://nodejs.org/api/buffer.html"><code>Buffer</code></a>.</li>
+								<li>When using <code>FetchResultTypes.Blob</code> the return type will be a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob"><code>Blob</code></a>.</li>
+								<li>When using <code>FetchResultTypes.Text</code> the return type will be a <code>string</code></li>
+								<li>When using <code>FetchResultTypes.Result</code> the return type will be a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response"><code>Response</code></a> ({@link Response} in typescript)</li>
 							</ul>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/2abc6c1/packages/fetch/src/lib/fetch.ts#L19">packages/fetch/src/lib/fetch.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/a8baab9/packages/fetch/src/lib/fetch.ts#L22">packages/fetch/src/lib/fetch.ts:22</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -373,7 +367,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/2abc6c1/packages/fetch/src/lib/fetch.ts#L20">packages/fetch/src/lib/fetch.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/a8baab9/packages/fetch/src/lib/fetch.ts#L23">packages/fetch/src/lib/fetch.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -390,7 +384,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/2abc6c1/packages/fetch/src/lib/fetch.ts#L21">packages/fetch/src/lib/fetch.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/a8baab9/packages/fetch/src/lib/fetch.ts#L24">packages/fetch/src/lib/fetch.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -410,7 +404,44 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/2abc6c1/packages/fetch/src/lib/fetch.ts#L22">packages/fetch/src/lib/fetch.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/a8baab9/packages/fetch/src/lib/fetch.ts#L25">packages/fetch/src/lib/fetch.ts:25</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>url: <span class="tsd-signature-type">URL</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>type: <a href="../enums/_sapphire_fetch.fetchresulttypes.html#blob" class="tsd-signature-type">Blob</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Blob</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/a8baab9/packages/fetch/src/lib/fetch.ts#L26">packages/fetch/src/lib/fetch.ts:26</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>url: <span class="tsd-signature-type">URL</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>options: <span class="tsd-signature-type">RequestInit</span></h5>
+								</li>
+								<li>
+									<h5>type: <a href="../enums/_sapphire_fetch.fetchresulttypes.html#blob" class="tsd-signature-type">Blob</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Blob</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/a8baab9/packages/fetch/src/lib/fetch.ts#L27">packages/fetch/src/lib/fetch.ts:27</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -427,7 +458,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/2abc6c1/packages/fetch/src/lib/fetch.ts#L23">packages/fetch/src/lib/fetch.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/a8baab9/packages/fetch/src/lib/fetch.ts#L28">packages/fetch/src/lib/fetch.ts:28</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -447,7 +478,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/2abc6c1/packages/fetch/src/lib/fetch.ts#L24">packages/fetch/src/lib/fetch.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/a8baab9/packages/fetch/src/lib/fetch.ts#L29">packages/fetch/src/lib/fetch.ts:29</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -464,7 +495,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/2abc6c1/packages/fetch/src/lib/fetch.ts#L25">packages/fetch/src/lib/fetch.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/a8baab9/packages/fetch/src/lib/fetch.ts#L30">packages/fetch/src/lib/fetch.ts:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -484,7 +515,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/2abc6c1/packages/fetch/src/lib/fetch.ts#L26">packages/fetch/src/lib/fetch.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/sapphiredev/utilities/blob/a8baab9/packages/fetch/src/lib/fetch.ts#L31">packages/fetch/src/lib/fetch.ts:31</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -505,7 +536,7 @@
 									<h5>type: <a href="../enums/_sapphire_fetch.fetchresulttypes.html" class="tsd-signature-type">FetchResultTypes</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Blob</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
