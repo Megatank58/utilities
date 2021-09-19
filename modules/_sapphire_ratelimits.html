@@ -82,8 +82,8 @@
 						<li>  <a href="#features">Features</a></li>
 						<li>  <a href="#installation">Installation</a></li>
 						<li><a href="#usage">Usage</a><ul>
-								<li>  <a href="#token-bucket">Token Bucket</a></li>
-								<li>  <a href="#leaky-bucket">Leaky Bucket</a></li>
+								<li>  <a href="#token-ratelimitmanager">Token RateLimitManager</a></li>
+								<li>  <a href="#leaky-ratelimitmanager">Leaky RateLimitManager</a></li>
 							</ul>
 						</li>
 						<li>  <a href="#api-documentation">API Documentation</a></li>
@@ -93,7 +93,7 @@
 					<a href="#description" id="description" style="color: inherit; text-decoration: none;">
 						<h2>Description</h2>
 					</a>
-					<p>There is often a need to apply ratelimits to protect a network from excessive traffic levels on connections routed through it. This package offers two different techniques in the same implementation: the simple <a href="https://en.wikipedia.org/wiki/Token_bucket">Token Bucket</a>, and the more complex <a href="https://en.wikipedia.org/wiki/Leaky_bucket">Leaky Bucket</a>.</p>
+					<p>There is often a need to apply ratelimits to protect a network from excessive traffic levels on connections routed through it, or limit bot command usages in your Discord bot, or similar things. This package offers two different techniques in the same implementation: the <a href="https://en.wikipedia.org/wiki/Token_bucket">Token Bucket</a>, and the <a href="https://en.wikipedia.org/wiki/Leaky_bucket">Leaky Bucket</a>.</p>
 					<a href="#features" id="features" style="color: inherit; text-decoration: none;">
 						<h2>Features</h2>
 					</a>
@@ -112,31 +112,50 @@
 					<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 						<h2>Usage</h2>
 					</a>
-					<p><strong>Note:</strong> While this section uses <code>require</code>, the imports match 1:1 with ESM imports. For example <code>const { Bucket } = require(&#39;@sapphire/ratelimits&#39;)</code> equals <code>import { Bucket } from &#39;@sapphire/ratelimits&#39;</code>.</p>
-					<a href="#token-bucket" id="token-bucket" style="color: inherit; text-decoration: none;">
-						<h3>Token Bucket</h3>
+					<p><strong>Note:</strong> While this section uses <code>require</code>, the imports match 1:1 with ESM imports. For example <code>const { RateLimitManager } = require(&#39;@sapphire/ratelimits&#39;)</code> equals <code>import { RateLimitManager } from &#39;@sapphire/ratelimits&#39;</code>.</p>
+					<a href="#token-ratelimitmanager" id="token-ratelimitmanager" style="color: inherit; text-decoration: none;">
+						<h3>Token RateLimitManager</h3>
 					</a>
 					<pre><code class="language-ts"><span class="hljs-comment">// Import the Bucket class</span>
-<span class="hljs-keyword">const</span> { Bucket } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@sapphire/ratelimits&#x27;</span>);
+<span class="hljs-keyword">const</span> { RateLimitManager } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@sapphire/ratelimits&#x27;</span>);
 
 <span class="hljs-comment">// Define a bucket with 1 usage every 5 seconds</span>
-<span class="hljs-keyword">const</span> bucket = <span class="hljs-keyword">new</span> Bucket().setDelay(<span class="hljs-number">5000</span>);
+<span class="hljs-keyword">const</span> rateLimitManager = <span class="hljs-keyword">new</span> RateLimitManager(<span class="hljs-number">5000</span>);
 
-<span class="hljs-built_in">console</span>.log(bucket.take(<span class="hljs-number">420</span>)); <span class="hljs-comment">// -&gt; 0</span>
-<span class="hljs-built_in">console</span>.log(bucket.take(<span class="hljs-number">420</span>)); <span class="hljs-comment">// -&gt; 5000</span>
+<span class="hljs-comment">// Acquire the rate limit. The ID can be something like `&#x27;global&#x27;`, a Discord channel/server/user ID, or anything else.</span>
+<span class="hljs-keyword">const</span> ratelimit = rateLimitManager.acquire(<span class="hljs-string">&#x27;some-unique-id-here&#x27;</span>);
+
+<span class="hljs-comment">// Check if there is a rate limit right now</span>
+<span class="hljs-keyword">if</span> (ratelimit.limited) {
+    <span class="hljs-comment">// Do something when limited, such as throwing an error</span>
+}
+
+<span class="hljs-comment">// We&#x27;re not rate limited so we drip the bucket</span>
+ratelimit.consume();
+
+<span class="hljs-comment">// And now we can finish the flow by returning some form of &quot;success&quot; state.</span>
 </code></pre>
-					<a href="#leaky-bucket" id="leaky-bucket" style="color: inherit; text-decoration: none;">
-						<h3>Leaky Bucket</h3>
+					<a href="#leaky-ratelimitmanager" id="leaky-ratelimitmanager" style="color: inherit; text-decoration: none;">
+						<h3>Leaky RateLimitManager</h3>
 					</a>
 					<pre><code class="language-ts"><span class="hljs-comment">// Import the Bucket class</span>
-<span class="hljs-keyword">const</span> { Bucket } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@sapphire/ratelimits&#x27;</span>);
+<span class="hljs-keyword">const</span> { RateLimitManager } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@sapphire/ratelimits&#x27;</span>);
 
 <span class="hljs-comment">// Define a bucket with 2 usages every 5 seconds</span>
-<span class="hljs-keyword">const</span> bucket = <span class="hljs-keyword">new</span> Bucket().setLimit({ <span class="hljs-attr">timespan</span>: <span class="hljs-number">5000</span>, <span class="hljs-attr">maximum</span>: <span class="hljs-number">2</span> });
+<span class="hljs-keyword">const</span> rateLimitManager = <span class="hljs-keyword">new</span> RateLimitManager(<span class="hljs-number">5000</span>, <span class="hljs-number">2</span>);
 
-<span class="hljs-built_in">console</span>.log(bucket.take(<span class="hljs-number">420</span>)); <span class="hljs-comment">// -&gt; 0</span>
-<span class="hljs-built_in">console</span>.log(bucket.take(<span class="hljs-number">420</span>)); <span class="hljs-comment">// -&gt; 0</span>
-<span class="hljs-built_in">console</span>.log(bucket.take(<span class="hljs-number">420</span>)); <span class="hljs-comment">// -&gt; 5000</span>
+<span class="hljs-comment">// Acquire the rate limit. The ID can be something like `&#x27;global&#x27;`, a Discord channel/server/user ID, or anything else.</span>
+<span class="hljs-keyword">const</span> ratelimit = rateLimitManager.acquire(<span class="hljs-string">&#x27;some-unique-id-here&#x27;</span>);
+
+<span class="hljs-comment">// Check if there is a rate limit right now</span>
+<span class="hljs-keyword">if</span> (ratelimit.limited) {
+    <span class="hljs-comment">// Do something when limited, such as throwing an error</span>
+}
+
+<span class="hljs-comment">// We&#x27;re not rate limited so we drip the bucket. After consuming once, the next run through we&#x27;ll be rate limited.</span>
+ratelimit.consume();
+
+<span class="hljs-comment">// And now we can finish the flow by returning some form of &quot;success&quot; state.</span>
 </code></pre>
 					<hr>
 					<a href="#api-documentation" id="api-documentation" style="color: inherit; text-decoration: none;">
