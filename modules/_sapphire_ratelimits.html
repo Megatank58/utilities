@@ -130,7 +130,7 @@
     <span class="hljs-comment">// Do something when limited, such as throwing an error</span>
 }
 
-<span class="hljs-comment">// We&#x27;re not rate limited so we drip the bucket</span>
+<span class="hljs-comment">// We&#x27;re not rate limited so we drip the bucket. After consuming once, the second run through we&#x27;ll be rate limited.</span>
 ratelimit.consume();
 
 <span class="hljs-comment">// And now we can finish the flow by returning some form of &quot;success&quot; state.</span>
@@ -152,7 +152,7 @@ ratelimit.consume();
     <span class="hljs-comment">// Do something when limited, such as throwing an error</span>
 }
 
-<span class="hljs-comment">// We&#x27;re not rate limited so we drip the bucket. After consuming once, the next run through we&#x27;ll be rate limited.</span>
+<span class="hljs-comment">// We&#x27;re not rate limited so we drip the bucket. After consuming twice, the third run through we&#x27;ll be rate limited.</span>
 ratelimit.consume();
 
 <span class="hljs-comment">// And now we can finish the flow by returning some form of &quot;success&quot; state.</span>
